@@ -17,7 +17,6 @@ const ProductCards = (props) => {
                 <p className="text-gray-400">{product.productID}</p>
                 <p className="text-lg font-bold">{product.name}</p>
                 <p className="text-lg text-pink-400 ">
-                    {product.price}
                     {product.price.toFixed(2)}{" "}
                     <span className="line-through text-gray-400 text-sm">
                         {product.price < product.labeledPrice &&
