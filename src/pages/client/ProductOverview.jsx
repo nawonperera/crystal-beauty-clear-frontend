@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Loader from "../../components/Loader.jsx";
 import ImageSlider from "../../components/ImageSlider.jsx";
+import getCart, { addToCart } from "../../utils/cart.js";
 
 const ProductOverview = () => {
     const params = useParams();
@@ -71,7 +72,14 @@ const ProductOverview = () => {
                             {product.description}
                         </p>
                         <div className="w-full flex justify-center gap-4  mb-[40px]">
-                            <button className="px-6 py-3 cursor-pointer bg-pink-800 border border-pink-800 hover:bg-white hover:text-pink-800 text-white rounded-lg transition">
+                            <button
+                                className="px-6 py-3 cursor-pointer bg-pink-800 border border-pink-800 hover:bg-white hover:text-pink-800 text-white rounded-lg transition"
+                                onClick={() => {
+                                    addToCart(product, 1);
+                                    toast.success("Product added to cart");
+                                    //console.log(getCart());
+                                }}
+                            >
                                 Add to Cart
                             </button>
                             <button className="px-6 py-3 cursor-pointer bg-pink-800 border border-pink-800 hover:bg-white hover:text-pink-800 text-white rounded-lg transition">
