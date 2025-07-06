@@ -64,7 +64,7 @@ const AddProductForm = () => {
                     value={productId}
                     onChange={(event)=>{
                         setProductId(event.target.value)
-                        toast.success(event.target.value);
+                        //toast.success(event.target.value);
                         }}
                     className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]" 
                     placeholder="ProductID"
@@ -73,7 +73,7 @@ const AddProductForm = () => {
                     value={name}
                     onChange={(event)=>{
                         setName(event.target.value)
-                        toast.success(event.target.value);
+                        //toast.success(event.target.value);
                         }}
                     className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]" 
                     placeholder="Product Name"
@@ -82,7 +82,7 @@ const AddProductForm = () => {
                     value={altNames}
                     onChange={(event)=>{
                         setAltNames(event.target.value)
-                        toast.success(event.target.value);
+                        //toast.success(event.target.value);
                         }}
                     className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]" 
                     placeholder="Alternative Names"
@@ -91,7 +91,7 @@ const AddProductForm = () => {
                     value={price}
                     onChange={(event)=>{
                         setPrice(event.target.value)
-                        toast.success(event.target.value);
+                        //toast.success(event.target.value);
                         }}
                     type="number"
                     className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]" 
@@ -101,7 +101,7 @@ const AddProductForm = () => {
                     value={labeledPrice}
                     onChange={(event)=>{
                         setLabeledPrice(event.target.value)
-                        toast.success(event.target.value);
+                        //toast.success(event.target.value);
                         }}
                     type="number"
                     className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]" 
@@ -111,7 +111,7 @@ const AddProductForm = () => {
                     value={description}
                     onChange={(event)=>{
                         setDescription(event.target.value)
-                        toast.success(event.target.value);
+                        //toast.success(event.target.value);
                         }}
                     className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]" 
                     placeholder="Description"
@@ -133,7 +133,7 @@ const AddProductForm = () => {
                     value={stock}
                     onChange={(event)=>{
                         setStock(event.target.value)
-                        toast.success(event.target.value);
+                        //toast.success(event.target.value);
                         }}
                     type="number"
                     className="w-[400px] h-[50px] border border-gray-500 rounded-xl text-center m-[5px]" 
@@ -150,7 +150,3 @@ const AddProductForm = () => {
 };
 
 export default AddProductForm;
-
-
-//productID,name,altNames,price,labeledPrice,description
-//images,stock

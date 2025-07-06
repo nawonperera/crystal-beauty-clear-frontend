@@ -17,7 +17,7 @@ const AdminProductsPage = () => {
         if(!loaded){
             axios.get(import.meta.env.VITE_BACKEND_URL+"/api/product").then(
             (response)=>{
-                console.log(response.data)
+                //console.log(response.data)
                 setProducts(response.data)
                 setLoaded(true)
                 }
