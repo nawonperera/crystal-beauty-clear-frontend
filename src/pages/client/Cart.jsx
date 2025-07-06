@@ -33,6 +33,7 @@ const Cart = () => {
                                 <TbTrash />
                             </button>
                             <img
+                                alt={"Product Image"}
                                 src={item.image}
                                 className="h-full aspect-square object-cover"
                             />

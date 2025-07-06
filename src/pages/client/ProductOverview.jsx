@@ -4,7 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Loader from "../../components/Loader.jsx";
 import ImageSlider from "../../components/ImageSlider.jsx";
-import getCart, { addToCart } from "../../utils/cart.js";
+import { addToCart } from "../../utils/cart.js";
 
 const ProductOverview = () => {
     const params = useParams();
