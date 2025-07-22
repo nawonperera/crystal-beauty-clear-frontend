@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -7,6 +7,7 @@ import ImageSlider from "../../components/ImageSlider.jsx";
 import { addToCart } from "../../utils/cart.js";
 
 const ProductOverview = () => {
+    const navigate = useNavigate();
     const params = useParams();
     //console.log(params.id);
     if (params.id == null) {
@@ -19,11 +20,7 @@ const ProductOverview = () => {
     useEffect(() => {
         if (status === "loading") {
             axios
-                .get(
-                    import.meta.env.VITE_BACKEND_URL +
-                        "/api/product/" +
-                        params.id,
-                )
+                .get(import.meta.env.VITE_BACKEND_URL + "/api/product/" + params.id)
                 .then((res) => {
                     setProduct(res.data.product);
                     setStatus("loaded");
@@ -47,30 +44,22 @@ const ProductOverview = () => {
                         <h1 className="text-3xl font-bold text-center mb-[40px]">
                             {product.name}
                             {" | "}
-                            <span className="text-3xl me-[20px] text-gray-500">
-                                {product.altNames.join(" | ")}
-                            </span>
+                            <span className="text-3xl me-[20px] text-gray-500">{product.altNames.join(" | ")}</span>
                         </h1>
 
                         <div className="w-full flex justify-center mb-[30px]">
                             {product.labeledPrice > product.price ? (
                                 <>
-                                    <h2 className="text-2xl mr-[20px]">
-                                        LKR: {product.price.toFixed(2)}
-                                    </h2>
+                                    <h2 className="text-2xl mr-[20px]">LKR: {product.price.toFixed(2)}</h2>
                                     <h2 className="text-2xl line-through text-gray-500 ">
                                         LKR: {product.labeledPrice.toFixed(2)}
                                     </h2>
                                 </>
                             ) : (
-                                <h2 className="text-3xl">
-                                    {product.price.toFixed(2)}
-                                </h2>
+                                <h2 className="text-3xl">{product.price.toFixed(2)}</h2>
                             )}
                         </div>
-                        <p className="text-xl text-center text-gray-500 mb-[30px]">
-                            {product.description}
-                        </p>
+                        <p className="text-xl text-center text-gray-500 mb-[30px]">{product.description}</p>
                         <div className="w-full flex justify-center gap-4  mb-[40px]">
                             <button
                                 className="px-6 py-3 cursor-pointer bg-pink-800 border border-pink-800 hover:bg-white hover:text-pink-800 text-white rounded-lg transition"
@@ -82,7 +71,26 @@ const ProductOverview = () => {
                             >
                                 Add to Cart
                             </button>
-                            <button className="px-6 py-3 cursor-pointer bg-pink-800 border border-pink-800 hover:bg-white hover:text-pink-800 text-white rounded-lg transition">
+                            <button
+                                onClick={() => {
+                                    navigate("/checkout", {
+                                        state: {
+                                            items: [
+                                                {
+                                                    productId: product.productId,
+                                                    name: product.name,
+                                                    altNames: product.altNames,
+                                                    price: product.price,
+                                                    labeledPrice: product.labeledPrice,
+                                                    image: product.images[0],
+                                                    quantity: 1,
+                                                },
+                                            ],
+                                        },
+                                    });
+                                }}
+                                className="px-6 py-3 cursor-pointer bg-pink-800 border border-pink-800 hover:bg-white hover:text-pink-800 text-white rounded-lg transition"
+                            >
                                 Buy Now
                             </button>
                         </div>

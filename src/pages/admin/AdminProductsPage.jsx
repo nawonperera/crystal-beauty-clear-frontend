@@ -42,7 +42,6 @@ const AdminProductsPage = () => {
         }catch(error){
             console.log(error);
             toast.error("Error deleting product")
-            return
         }
     }
 

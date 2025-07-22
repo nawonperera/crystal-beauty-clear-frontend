@@ -42,9 +42,25 @@ export function addToCart(product, qty) {
 
 export function removeFromCart(productId) {
     const cart = getCart();
-    const updatedCart = cart.filter(
-        (item) => item.productId !== productId,
-    );
+    const updatedCart = cart.filter((item) => item.productId !== productId);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     return updatedCart;
+}
+
+export function getTotal() {
+    const cart = getCart();
+    let total = 0;
+    cart.forEach((product) => {
+        total += product.price * product.quantity;
+    });
+    return total;
+}
+
+export function getTotalForLabeledPrice() {
+    const cart = getCart();
+    let total = 0;
+    cart.forEach((product) => {
+        total += product.labeledPrice * product.quantity;
+    });
+    return total;
 }
