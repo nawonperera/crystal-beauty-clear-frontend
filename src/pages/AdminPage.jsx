@@ -32,7 +32,7 @@ const AdminPage = () => {
                     if (response.data.user.role === "admin") {
                         setUserValidated(true);
                     } else {
-                        toast.error("Failed to fetch user info");
+                        toast.error("You are not an Admin");
                         navigate("/login");
                     }
                 })
