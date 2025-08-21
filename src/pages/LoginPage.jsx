@@ -107,6 +107,12 @@ const LoginPage = () => {
                             <Link to={"/register"}>Register Now</Link>
                         </span>
                     </p>
+                    <p className="text-gray-600 text-center m-[10px]">
+                        Forget your password?&nbsp;
+                        <Link to="/forget" className="text-green-500 hover:text-green-700 cursor-pointer">
+                            Reset Password
+                        </Link>
+                    </p>
                 </div>
             </div>
         </div>

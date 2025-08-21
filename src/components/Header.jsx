@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BsCart2 } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import UserData from "./UserData";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,13 +15,17 @@ const Header = () => {
                 <Link to="/products">Products</Link>
                 <Link to="/contacts">Contacts</Link>
                 <Link to="/reviews">Reviews</Link>
+                <div className="absolute right-[70px] h-full">
+                    <UserData />
+                </div>
+
                 <Link to="/cart" className="absolute right-[30px] text-4xl">
                     <BsCart2 />
                 </Link>
             </div>
             {isOpen && (
                 //z-index appear on top of those with lower values.
-                <div className="fixed top-0 left-0 bg-[#00000060] w-full h-screen flex z-[9999]">
+                <div className="fixed top-0 left-0 bg-[#00000060] w-full h-screen flex z-[9999] lg:hidden">
                     <div className="w-[300px] h-full bg-white flex flex-col justify-start items-start p-4">
                         <GiHamburgerMenu className="text-3xl text-accent" onClick={() => setIsOpen(false)} />
                         <Link to="/" className="text-xl text-accent my-4">
