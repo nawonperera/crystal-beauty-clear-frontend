@@ -9,8 +9,9 @@ import Home from "./client/Home.jsx";
 const HomePage = () => {
     return (
         <div className="w-full h-screen max-h-screen ">
-            <Header />
-            <div className="w-full h-[calc(100vh-70px)] min-h-[calc(100vh-70px)] ">
+            {/* <Header /> */}
+            {/* <div className="w-full h-[calc(100vh-70px)] min-h-[calc(100vh-70px)] "> */}
+            <div className="w-full h-full ">
                 <Routes path={"/*"}>
                     <Route path="/" element={<Home />} />
                     <Route path="/products" element={<ProductsPage />} />
