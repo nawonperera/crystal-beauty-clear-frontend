@@ -4,6 +4,7 @@ import ProductsPage from "./client/ProductsPage.jsx";
 import ProductOverview from "./client/ProductOverview.jsx";
 import Cart from "./client/Cart.jsx";
 import Checkout from "./client/Checkout.jsx";
+import Home from "./client/Home.jsx";
 
 const HomePage = () => {
     return (
@@ -11,7 +12,7 @@ const HomePage = () => {
             <Header />
             <div className="w-full h-[calc(100vh-70px)] min-h-[calc(100vh-70px)] ">
                 <Routes path={"/*"}>
-                    <Route path="/" element={<h1>Home Page</h1>} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/products" element={<ProductsPage />} />
                     <Route path="/overview/:id" element={<ProductOverview />} />
                     <Route path="/cart" element={<Cart />} />
