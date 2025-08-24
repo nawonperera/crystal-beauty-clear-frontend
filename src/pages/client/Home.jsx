@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BsCart2 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import UserData from "../../components/UserData";
+import TrendingItems from "../../components/homepage components/TrendingItems";
 
 const Home = () => {
     const [brightness, setBrightness] = useState(0.7); // start at 70%
@@ -15,7 +16,7 @@ const Home = () => {
             const progress = Math.min(scrollY / sectionHeight, 1);
 
             // Brightness from 0.6 → 1.0
-            const newBrightness = 0.6 + progress * 0.4;
+            const newBrightness = 0.7 + progress * 0.4;
             setBrightness(newBrightness);
         };
 
@@ -24,7 +25,7 @@ const Home = () => {
     }, []);
 
     return (
-        <>
+        <div className="w-full min-h-screen bg-[#EDF6EE]">
             <div
                 className="w-full h-screen bg-[url(/login-bg.jpg)] bg-fixed bg-cover bg-center flex transition-all duration-200"
                 style={{ filter: `brightness(${brightness})` }}
@@ -51,9 +52,30 @@ const Home = () => {
                     </div>
                 </header>
             </div>
-            {/* Extra content to allow scrolling */}
-            <div className="h-[150vh] w-full bg-amber-800"></div>
-        </>
+            {/* Tranding Items View */}
+            <div className="w-full min-h-screen flex justify-center pb-[150px]">
+                <div className=" lg:w-[75%] lg:mx-auto w-full ">
+                    <div className="w-full  flex flex-col justify-center  mt-[70px]">
+                        <h1 className="text-xl text-[#1b9c85] text-center">A BRUSH OF PERFECTION</h1>
+                    </div>
+                    <div className="w-full  flex  justify-center pt-[5px] pb-[20px]">
+                        <h1 className="text-3xl text-black text-center ">A TWIST OF MAGIC TO EVERY DAY</h1>
+                    </div>
+                    <div className="w-full  flex  justify-center ">
+                        <p className="text-sm text-gray-700 text-center ">
+                            Dreams dance softly under endless skies, whispering untold stories.
+                        </p>
+                    </div>
+
+                    <div className="w-full pt-[50px]">
+                        <TrendingItems />
+                    </div>
+                </div>
+            </div>
+            <div className="w-full h-screen flex justify-center bg-red-900">
+                <h1 className="text-2xl text-white text-center p-10">Footer Section</h1>
+            </div>
+        </div>
     );
 };
 
