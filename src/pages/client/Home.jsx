@@ -54,7 +54,7 @@ const Home = () => {
             </div>
             {/* Tranding Items View */}
             <div className="w-full min-h-screen flex justify-center pb-[150px]">
-                <div className=" lg:w-[75%] lg:mx-auto w-full ">
+                <div className=" w-[75%] mx-auto">
                     <div className="w-full  flex flex-col justify-center  mt-[70px]">
                         <h1 className="text-xl text-[#1b9c85] text-center">A BRUSH OF PERFECTION</h1>
                     </div>
@@ -67,17 +67,17 @@ const Home = () => {
                         </p>
                     </div>
 
-                    <div className="w-full pt-[50px] ">
+                    <div className="w-full pt-[50px]">
                         <TrendingItems />
                     </div>
                 </div>
             </div>
 
             {/* Store Features */}
-            <div className="w-full min-h-screen lg:w-[75%] lg:mx-auto ">
-                <div className="w-full h-[60vh] flex justify-center items-center rounded-xl overflow-hidden bg-amber-900">
+            <div className="min-h-screen w-[75%] mx-auto ">
+                <div className="w-full h-[60vh] flex justify-center items-center rounded-lg overflow-hidden bg-[#F8F8FA]">
                     {/* Left: Video */}
-                    <div className="w-[51%] h-full bg-amber-700">
+                    <div className="hidden lg:flex w-[51%] h-full">
                         <video className="w-full h-full object-cover" controls autoPlay loop muted>
                             <source src="public\Homepage video.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
@@ -85,7 +85,27 @@ const Home = () => {
                     </div>
 
                     {/* Right: Content */}
-                    <div className="w-[49%] h-full bg-blue-400">{/* Your text or image goes here */}</div>
+                    <div className="w-[49%] h-full  flex justify-center items-center">
+                        <div className="w-[75%]  flex flex-col items-center justify-center">
+                            {/* Small Heading */}
+                            <h1 className="text-base font-bold text-[#1b9c85] text-center m-4">
+                                SHINE BRIGHT, SHINE CONFIDENT
+                            </h1>
+
+                            {/* Main Heading */}
+                            <h1 className="text-3xl font-bold text-black text-center pt-1 pb-5">UNLEASH YOUR STYLE</h1>
+
+                            {/* Description */}
+                            <p className="text-sm font-bold text-gray-700 text-center mt-2 w-[65%]">
+                                Discover styles that bring out your confidence and redefine the way you shine every day.
+                            </p>
+
+                            {/* Action Button */}
+                            <button className="mt-7 bg-[#1B9C85] text-white text-sm px-4 py-2 hover:bg-[#178E79] hover:text-white transition cursor-pointer">
+                                SHOP NOW
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="w-full h-[60vh] flex items-center mt-[25px]  ">
@@ -96,6 +116,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <div className="w-full min-h-screen bg-amber-400"></div>
         </div>
     );
 };
