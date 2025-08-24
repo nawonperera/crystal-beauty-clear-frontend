@@ -19,7 +19,7 @@ const TrendingItems = () => {
     return (
         <div className="h-full w-full">
             {productsLoaded ? (
-                <div className="w-full h-full grid grid-cols-4 justify-start">
+                <div className="w-full h-full flex justify-between flex-wrap">
                     {productList.slice(0, 9).map((product) => {
                         return <ProductCards key={product.productID} product={product} />;
                     })}

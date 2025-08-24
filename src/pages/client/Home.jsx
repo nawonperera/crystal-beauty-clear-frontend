@@ -67,13 +67,34 @@ const Home = () => {
                         </p>
                     </div>
 
-                    <div className="w-full pt-[50px]">
+                    <div className="w-full pt-[50px] ">
                         <TrendingItems />
                     </div>
                 </div>
             </div>
-            <div className="w-full h-screen flex justify-center bg-red-900">
-                <h1 className="text-2xl text-white text-center p-10">Footer Section</h1>
+
+            {/* Store Features */}
+            <div className="w-full min-h-screen lg:w-[75%] lg:mx-auto ">
+                <div className="w-full h-[60vh] flex justify-center items-center rounded-xl overflow-hidden bg-amber-900">
+                    {/* Left: Video */}
+                    <div className="w-[51%] h-full bg-amber-700">
+                        <video className="w-full h-full object-cover" controls autoPlay loop muted>
+                            <source src="public\Homepage video.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    {/* Right: Content */}
+                    <div className="w-[49%] h-full bg-blue-400">{/* Your text or image goes here */}</div>
+                </div>
+
+                <div className="w-full h-[60vh] flex items-center mt-[25px]  ">
+                    <div className="flex justify-evenly items-center w-full h-[35vh] ">
+                        <div className="w-[33%] h-full bg-green-700"></div>
+                        <div className="w-[33%] h-full bg-blue-400"></div>
+                        <div className="w-[33%] h-full bg-red-300"></div>
+                    </div>
+                </div>
             </div>
         </div>
     );

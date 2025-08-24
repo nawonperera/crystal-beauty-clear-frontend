@@ -25,7 +25,7 @@ const ProductCards = ({ product }) => {
     return (
         <Link
             to={`/overview/${product.productID}`}
-            className="w-[260px] h-[420px] m-4 bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+            className="w-[260px] h-[420px] bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl"
         >
             {/* Image + discount badge */}
             <div className="relative w-full h-[180px]">
