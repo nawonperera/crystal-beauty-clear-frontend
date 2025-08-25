@@ -15,7 +15,10 @@ const Header = () => {
 
             <div className="flex items-center justify-between w-full px-4 py-2 lg:hidden">
                 {/* Left: Hamburger menu */}
-                <GiHamburgerMenu className="text-3xl text-accent cursor-pointer" onClick={() => setIsOpen(true)} />
+                <GiHamburgerMenu
+                    className="text-3xl text-accent cursor-pointer hover:rotate-90 transition-transform duration-300"
+                    onClick={() => setIsOpen(true)}
+                />
 
                 {/* Center: Logo */}
                 <div className="flex items-center justify-center">
@@ -38,7 +41,7 @@ const Header = () => {
             </div>
 
             {isOpen && (
-                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] lg:hidden">
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] lg:hidden ">
                     {/* Slide-in Sidebar */}
                     <div className="w-[280px] h-full bg-white shadow-2xl flex flex-col p-6 animate-slideIn">
                         {/* Close Button */}
@@ -85,7 +88,7 @@ const Header = () => {
 
                         {/* Extra section (Optional: footer, buttons, etc.) */}
                         <div className="mt-auto pt-6 border-t border-gray-200 w-full">
-                            <p className="text-sm text-gray-500">© 2025 YourBrand</p>
+                            <p className="text-sm text-gray-500">© 2025 CRISTAL BEAUTY & CLEAR</p>
                         </div>
                     </div>
                 </div>
