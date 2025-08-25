@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import UserData from "../../components/UserData";
 import TrendingItems from "../../components/homepage components/TrendingItems";
 import { FaPercentage, FaShippingFast, FaUserShield } from "react-icons/fa";
+import Header from "../../components/Header";
 
 const Home = () => {
     const [brightness, setBrightness] = useState(0.7); // start at 70%
@@ -27,32 +28,19 @@ const Home = () => {
 
     return (
         <div className="w-full min-h-screen bg-[#EDF6EE]">
-            <div
-                className="w-full h-screen bg-[url(/login-bg.jpg)] bg-fixed bg-cover bg-center flex transition-all duration-200"
-                style={{ filter: `brightness(${brightness})` }}
-            >
-                <header className="w-full h-[20%] relative ">
-                    {/* <img src="public\ChatGPT Image Aug 23, 2025, 03_02_44 AM.png" alt=" " /> */}
-                    <div className="w-full h-[60%] flex items-center justify-center ">
-                        <h1 className="text-3xl text-black text-center">Welcome to Cristal Beauty & Clear</h1>
-                        <div className="absolute right-[15px] h-full">
-                            <UserData />
-                        </div>
-                    </div>
-                    <div className="w-full h-[40%] flex items-center justify-center">
-                        <div className="hidden lg:flex w-[500px] h-full items-center justify-evenly text-pink-400 text-xl text-accent">
-                            <Link to="/">Home</Link>
-                            <Link to="/products">Shop</Link>
-                            <Link to="/reviews">Testimonials</Link>
-                            <Link to="/contacts">Contact</Link>
-                            <Link to="/about">About</Link>
-                            <Link to="/cart" className="text-4xl">
-                                <BsCart2 />
-                            </Link>
-                        </div>
-                    </div>
-                </header>
+            <div className="w-full h-screen relative overflow-hidden">
+                <div
+                    className="absolute inset-0 bg-fixed bg-cover bg-center"
+                    style={{
+                        backgroundImage: "url(/Banner.jpg)",
+                        filter: `brightness(${brightness})`, // only affects bg
+                    }}
+                ></div>
+                <div className="relative z-10 flex w-full h-full">
+                    <Header />
+                </div>
             </div>
+
             {/* Tranding Items View */}
             <div className="w-full min-h-screen flex justify-center pb-[150px]">
                 <div className=" w-[75%] mx-auto">
