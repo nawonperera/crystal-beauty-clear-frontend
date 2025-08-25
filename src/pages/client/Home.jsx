@@ -3,6 +3,7 @@ import { BsCart2 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import UserData from "../../components/UserData";
 import TrendingItems from "../../components/homepage components/TrendingItems";
+import { FaPercentage, FaShippingFast, FaUserShield } from "react-icons/fa";
 
 const Home = () => {
     const [brightness, setBrightness] = useState(0.7); // start at 70%
@@ -87,32 +88,55 @@ const Home = () => {
                     {/* Right: Content */}
                     <div className="w-[49%] h-full  flex justify-center items-center">
                         <div className="w-[75%]  flex flex-col items-center justify-center">
-                            {/* Small Heading */}
                             <h1 className="text-base font-bold text-[#1b9c85] text-center m-4">
                                 SHINE BRIGHT, SHINE CONFIDENT
                             </h1>
 
-                            {/* Main Heading */}
                             <h1 className="text-3xl font-bold text-black text-center pt-1 pb-5">UNLEASH YOUR STYLE</h1>
 
-                            {/* Description */}
-                            <p className="text-sm font-bold text-gray-700 text-center mt-2 w-[65%]">
+                            <p className="text-base text-gray-700 text-center mt-2 w-[65%]">
                                 Discover styles that bring out your confidence and redefine the way you shine every day.
                             </p>
 
-                            {/* Action Button */}
-                            <button className="mt-7 bg-[#1B9C85] text-white text-sm px-4 py-2 hover:bg-[#178E79] hover:text-white transition cursor-pointer">
+                            <Link
+                                className="mt-7 bg-[#1B9C85] text-white text-sm px-4 py-2 hover:bg-[#178E79] hover:text-white transition cursor-pointer"
+                                to={"/products"}
+                            >
                                 SHOP NOW
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
 
-                <div className="w-full h-[60vh] flex items-center mt-[25px]  ">
-                    <div className="flex justify-evenly items-center w-full h-[35vh] ">
-                        <div className="w-[33%] h-full bg-green-700"></div>
-                        <div className="w-[33%] h-full bg-blue-400"></div>
-                        <div className="w-[33%] h-full bg-red-300"></div>
+                <div className="w-full h-[60vh] flex items-center">
+                    <div className="flex justify-between  w-full h-[35vh] pt-7">
+                        <div className="w-[32%] h-full flex flex-col items-center text-center gap-4 ">
+                            <div className="w-16 h-16 text-4xl flex justify-center items-center border rounded-full border-[#1b9c85] text-[#1b9c85]">
+                                <FaPercentage />
+                            </div>
+                            <h2 className="text-xl font-semibold">SEASON SALE</h2>
+                            <p className="text-base text-gray-700 text-center w-[65%]">
+                                Summer beauty made easy, Get your favorite cosmetics at hot prices!
+                            </p>
+                        </div>
+                        <div className="w-[32%] h-full flex flex-col items-center text-center gap-4 ">
+                            <div className="w-16 h-16 text-4xl flex justify-center items-center border rounded-full border-[#1b9c85] text-[#1b9c85]">
+                                <FaShippingFast />
+                            </div>
+                            <h2 className="text-xl font-semibold">FREE SHIPPING</h2>
+                            <p className="text-base text-gray-700 text-center w-[65%]">
+                                Beauty Delivered to Your Door, No Shipping Fees!
+                            </p>
+                        </div>
+                        <div className="w-[32%] h-full flex flex-col items-center text-center gap-4 ">
+                            <div className="w-16 h-16 text-4xl flex justify-center items-center border rounded-full border-[#1b9c85] text-[#1b9c85]">
+                                <FaUserShield />
+                            </div>
+                            <h2 className="text-xl font-semibold">MONEY BACK GUARANTEE</h2>
+                            <p className="text-base text-gray-700 text-center w-[65%]">
+                                Beauty You Can Trust, Or Your Money Back!
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
