@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
-const ProductCards = ({ product }) => {
+const ProductCards = ({ product, shadow }) => {
     const discount =
         product.price < product.labeledPrice
             ? Math.round(((product.labeledPrice - product.price) / product.labeledPrice) * 100)
@@ -25,7 +25,7 @@ const ProductCards = ({ product }) => {
     return (
         <Link
             to={`/overview/${product.productID}`}
-            className="w-[260px] h-[420px] mt-10 bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+            className={`w-[260px] h-[420px] mt-10 m-5 bg-white rounded-xl ${shadow} overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl`}
         >
             {/* Image + discount badge */}
             <div className="relative w-full h-[180px]">

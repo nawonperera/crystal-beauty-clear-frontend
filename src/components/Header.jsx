@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import UserData from "./UserData";
 
-const Header = () => {
+const Header = ({ navBarColor }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -26,7 +26,9 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className="hidden lg:flex h-full items-center justify-center gap-8 text-white text-xl absolute left-1/2 -translate-x-1/2">
+            <div
+                className={`hidden lg:flex h-full items-center justify-center gap-8 ${navBarColor} text-xl absolute left-1/2 -translate-x-1/2`}
+            >
                 <Link to="/">HOME</Link>
                 <Link to="/products">SHOP</Link>
                 <Link to="/reviews">TESTIMONIALS</Link>

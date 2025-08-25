@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { BsCart2 } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import UserData from "../../components/UserData";
 import TrendingItems from "../../components/homepage components/TrendingItems";
 import { FaPercentage, FaShippingFast, FaUserShield } from "react-icons/fa";
 import Header from "../../components/Header";
