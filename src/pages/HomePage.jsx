@@ -5,6 +5,7 @@ import ProductOverview from "./client/ProductOverview.jsx";
 import Cart from "./client/Cart.jsx";
 import Checkout from "./client/Checkout.jsx";
 import Home from "./client/Home.jsx";
+import ContactPage from "./client/ContactPage.jsx";
 
 const HomePage = () => {
     return (
@@ -18,6 +19,7 @@ const HomePage = () => {
                     <Route path="/overview/:id" element={<ProductOverview />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/contacts" element={<ContactPage />} />
                     <Route path="/*" element={<h1>404 Not Found</h1>} />
                 </Routes>
             </div>

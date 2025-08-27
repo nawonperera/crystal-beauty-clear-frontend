@@ -34,7 +34,7 @@ const Home = () => {
                         filter: `brightness(${brightness})`, // only affects bg
                     }}
                 ></div>
-                <div className="relative z-10 flex w-full h-full">
+                <div className="relative z-10 flex w-full h-full ">
                     <Header />
                 </div>
             </div>

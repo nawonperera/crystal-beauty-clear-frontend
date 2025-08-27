@@ -8,8 +8,8 @@ const Header = ({ navBarColor }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <header className="w-full h-[20%] relative flex items-center justify-start">
-            <div className="hidden w-[10%] h-full lg:flex items-center justify-center border-4 mx-4">
+        <header className="w-full h-[20vh] relative flex items-center justify-start ">
+            <div className="hidden w-[10%] h-full lg:flex items-center justify-center border-4 mx-4 ">
                 <img src="public\Logo.png" alt=" " />
             </div>
 
