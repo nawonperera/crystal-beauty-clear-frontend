@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import TrendingItems from "../../components/homepage components/TrendingItems";
 import { FaPercentage, FaShippingFast, FaUserShield } from "react-icons/fa";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 const Home = () => {
     const [brightness, setBrightness] = useState(0.7); // start at 70%
@@ -34,8 +35,8 @@ const Home = () => {
                         filter: `brightness(${brightness})`, // only affects bg
                     }}
                 ></div>
-                <div className="relative z-10 flex w-full h-full ">
-                    <Header />
+                <div className="relative z-10 flex w-full h-full py-[10px]">
+                    <Header headerImage="public\footer-logo.png" navBarColor="text-white" />
                 </div>
             </div>
 
@@ -126,7 +127,9 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full min-h-screen bg-amber-400"></div>
+            <div>
+                <Footer />
+            </div>
         </div>
     );
 };

@@ -4,13 +4,13 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import UserData from "./UserData";
 
-const Header = ({ navBarColor }) => {
+const Header = ({ navBarColor, headerImage }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
         <header className="w-full h-[20vh] relative flex items-center justify-start ">
-            <div className="hidden w-[10%] h-full lg:flex items-center justify-center border-4 mx-4 ">
-                <img src="public\Logo.png" alt=" " />
+            <div className="p-2">
+                <img src={headerImage} alt="Company Logo" className="h-4\0 w-40 object-contain" />
             </div>
 
             <div className="flex items-center justify-between w-full px-4 py-2 lg:hidden">

@@ -33,8 +33,8 @@ const ProductsPage = () => {
         <div className="min-h-screen w-full bg-[#EDF6EE]">
             {/*Header*/}
 
-            <div className="mb-[10px]">
-                <Header navBarColor={navBarColor} />
+            <div className="py-[10px]">
+                <Header navBarColor={navBarColor} headerImage="public\logo.png" />
             </div>
 
             {/* Search bar */}
