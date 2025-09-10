@@ -3,26 +3,33 @@ import Header from "../../components/Header";
 const ContactPage = () => {
     return (
         <div className="min-h-screen w-full bg-[#EDF6EE]">
+            {/* Hero Banner Section */}
             <div className="h-[55vh] w-full bg-[linear-gradient(to_top,rgba(90,177,101,0.6),rgba(90,177,101,0)),url('/ContactsPageBanner.jpg')] bg-cover bg-center">
                 <Header />
             </div>
 
-            <div className="w-full h-[1000px] flex justify-center relative">
-                <div className="w-[49%] h-full bg-[#EDF6EE]"></div>
-                <div className="w-[50%] h-full bg-[url('/ContactsPageBackground.jpg')] bg-cover bg-center "></div>
-                <div className="w-[800px] h-auto bg-white absolute top-[30vh] left-1/2 -translate-x-1/2 shadow-2xl p-10">
+            {/* Form Section */}
+            <div className="w-full flex flex-col lg:flex-row justify-center relative pb-10 lg:pb-0">
+                {/* Background Columns */}
+                <div className="w-full lg:w-[50%] min-h-[400px] lg:min-h-[800px] bg-[#EDF6EE]"></div>
+                <div className="w-full lg:w-[50%] min-h-[400px] lg:min-h-[800px] bg-[url('/ContactsPageBackground.jpg')] bg-cover bg-center"></div>
+
+                {/* Form Card */}
+                <div className="w-[90%] max-w-3xl bg-white absolute top-30 lg:top-[10vh] left-1/2 -translate-x-1/2 shadow-2xl p-6 sm:p-10 rounded-lg z-10 mt-[-50px] lg:mt-0">
                     {/* Header */}
                     <div className="text-center">
-                        <h4 className=" text-2xl uppercase font-semibold tracking-wider text-green-600  px-4 py-1 ">
+                        <h4 className="text-xl sm:text-2xl uppercase font-semibold tracking-wider text-green-600 px-4 py-1">
                             Message Us
                         </h4>
-                        <h2 className="mt-[24px] text-4xl font-semibold text-gray-900">GET IN TOUCH WITH US</h2>
+                        <h2 className="mt-4 sm:mt-6 text-2xl sm:text-4xl font-semibold text-gray-900">
+                            GET IN TOUCH WITH US
+                        </h2>
                     </div>
 
                     {/* Form */}
-                    <form className="mt-10 space-y-6">
+                    <form className="mt-6 sm:mt-10 space-y-4 sm:space-y-6">
                         {/* Name Fields */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700">
                                     First Name <span className="text-red-500">*</span>
@@ -44,7 +51,7 @@ const ContactPage = () => {
                             </div>
                         </div>
 
-                        {/* Email Field */}
+                        {/* Email */}
                         <div>
                             <label className="block text-sm font-medium text-gray-700">
                                 Email <span className="text-red-500">*</span>
@@ -57,7 +64,7 @@ const ContactPage = () => {
                             />
                         </div>
 
-                        {/* Message Field */}
+                        {/* Message */}
                         <div>
                             <label className="block text-sm font-medium text-gray-700">
                                 Message <span className="text-red-500">*</span>
@@ -70,11 +77,11 @@ const ContactPage = () => {
                             />
                         </div>
 
-                        {/* Submit Button */}
-                        <div>
+                        {/* Submit */}
+                        <div className="text-center">
                             <button
                                 type="submit"
-                                className="px-8 py-3 uppercase bg-green-600 text-white text-lg font-semibold shadow-lg hover:bg-green-700 hover:shadow-xl transition duration-300 ease-in-out"
+                                className="px-8 py-3 uppercase bg-[#1B9C85] text-white text-lg font-semibold shadow-lg hover:bg-[#178E79] hover:shadow-xl transition duration-300 ease-in-out"
                             >
                                 Send
                             </button>
@@ -83,8 +90,9 @@ const ContactPage = () => {
                 </div>
             </div>
 
-            <div className="min-h-screen flex items-center justify-center p-6">
-                <div className="w-full max-w-5xl rounded-2xl shadow-2xl overflow-hidden bg-white">
+            {/* Contact Info Section */}
+            <div className="min-h-screen flex items-center justify-center p-6 bg-white relative mt-10 lg:mt-0">
+                <div className="w-full max-w-5xl rounded-2xl shadow-2xl overflow-hidden mt-10 lg:mt-0">
                     <div className="md:grid md:grid-cols-2">
                         {/* Left: Hero + Social */}
                         <div className="relative h-80 md:h-auto">
@@ -96,10 +104,12 @@ const ContactPage = () => {
                                 }}
                                 aria-hidden="true"
                             />
-                            <div className="relative z-10 p-8 md:p-12 h-full flex flex-col justify-center bg-[rgba(255,255,255,0.72)]">
-                                <h2 className="text-3xl md:text-4xl font-extrabold text-green-800 mb-3">Contact Us</h2>
+                            <div className="relative z-10 p-8 md:p-12 h-full flex flex-col justify-center bg-white bg-opacity-70 md:bg-opacity-50">
+                                <h2 className="text-3xl md:text-4xl font-extrabold text-[#1B9C85] uppercase mb-3">
+                                    Contact Us
+                                </h2>
                                 <p className="text-gray-700 mb-6 leading-relaxed">
-                                    We’d love to hear from you. Whether you have a question about our services, pricing
+                                    We'd love to hear from you. Whether you have a question about our services, pricing
                                     or anything else — our team is ready to answer.
                                 </p>
 
@@ -111,7 +121,7 @@ const ContactPage = () => {
                                             className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:bg-green-50 transform transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-200"
                                         >
                                             <svg
-                                                className="w-5 h-5 text-green-600"
+                                                className="w-5 h-5 text-[#1B9C85]"
                                                 viewBox="0 0 24 24"
                                                 fill="currentColor"
                                                 aria-hidden="true"
@@ -125,7 +135,7 @@ const ContactPage = () => {
                                             className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:bg-green-50 transform transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-200"
                                         >
                                             <svg
-                                                className="w-5 h-5 text-green-600"
+                                                className="w-5 h-5 text-[#1B9C85]"
                                                 viewBox="0 0 24 24"
                                                 fill="currentColor"
                                                 aria-hidden="true"
@@ -139,7 +149,7 @@ const ContactPage = () => {
                                             className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow hover:bg-green-50 transform transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-200"
                                         >
                                             <svg
-                                                className="w-5 h-5 text-green-600"
+                                                className="w-5 h-5 text-[#1B9C85]"
                                                 viewBox="0 0 24 24"
                                                 fill="currentColor"
                                                 aria-hidden="true"
@@ -153,7 +163,7 @@ const ContactPage = () => {
                                 <div className="mt-6">
                                     <a
                                         href="#contact"
-                                        className="inline-block px-5 py-3 bg-green-600 text-white rounded-lg font-medium shadow hover:bg-green-700 transition"
+                                        className="inline-block px-5 py-3 bg-[#1B9C85] text-white rounded-lg font-medium shadow hover:bg-green-700 transition"
                                     >
                                         Get in touch
                                     </a>
@@ -162,7 +172,7 @@ const ContactPage = () => {
                         </div>
 
                         {/* Right: Contact details + map */}
-                        <div className="p-6 md:p-8 flex flex-col justify-center bg-white">
+                        <div className="p-6 md:p-8 flex flex-col justify-center bg-[#EDF6EE]">
                             <div className="space-y-4 text-gray-700">
                                 <div>
                                     <p className="font-semibold text-gray-800">Union Square Greenmarket</p>
@@ -171,7 +181,7 @@ const ContactPage = () => {
 
                                 <div className="flex items-center space-x-3">
                                     <svg
-                                        className="w-5 h-5 text-green-600"
+                                        className="w-5 h-5 text-[#1B9C85]"
                                         viewBox="0 0 24 24"
                                         fill="currentColor"
                                         aria-hidden="true"
@@ -183,17 +193,17 @@ const ContactPage = () => {
 
                                 <div className="flex items-center space-x-3">
                                     <svg
-                                        className="w-5 h-5 text-green-600"
+                                        className="w-5 h-5 text-[#1B9C85]"
                                         viewBox="0 0 24 24"
                                         fill="currentColor"
                                         aria-hidden="true"
                                     >
                                         <path d="M21 10c0 1.1-.9 2-2 2h-1v7a2 2 0 01-2 2H8a2 2 0 01-2-2v-7H5c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v4zM9 8h6v2H9V8z" />
                                     </svg>
-                                    <p className="text-gray-600">Timing: 9am - 8pm</p>
+                                    <p className="text-gray-600">Timing: 9am - 7pm</p>
                                 </div>
 
-                                <div className="flex items-center justify-between mt-2">
+                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-2 gap-2">
                                     <a
                                         className="text-blue-600 underline text-sm hover:text-blue-700"
                                         href="#"
@@ -203,22 +213,15 @@ const ContactPage = () => {
                                         View larger map
                                     </a>
                                     <a
-                                        className="px-3 py-2 bg-green-50 text-green-700 rounded-md text-sm font-semibold hover:bg-green-100 transition"
+                                        className="px-3 py-2 bg-green-50 text-green-700 rounded-md text-sm font-semibold hover:bg-green-100 transition text-center"
                                         href="tel:+1234567890"
                                     >
-                                        Call: +1 (234) 567-890
+                                        Call: +94 77 123 4567
                                     </a>
                                 </div>
 
-                                <div className="mt-4 bg-gray-50 rounded-lg p-3 shadow-inner">
-                                    <p className="font-semibold text-gray-800">Upcoming Market</p>
-                                    <p className="text-sm text-gray-600">
-                                        Union Square Holiday Market · Nov 24 - Dec 24
-                                    </p>
-                                </div>
-
                                 <div className="mt-4 rounded-lg overflow-hidden shadow-sm">
-                                    {/* Map — replace src with your embed or component */}
+                                    {/* Map */}
                                     <iframe
                                         title="Union Square Map"
                                         className="w-full h-40 border-0"
@@ -228,7 +231,7 @@ const ContactPage = () => {
                                     <div className="p-3 flex justify-between items-center bg-white">
                                         <span className="text-sm text-gray-600">Google</span>
                                         <a
-                                            className="text-green-600 font-semibold text-sm hover:underline"
+                                            className="text-[#1B9C85] font-semibold text-sm hover:underline"
                                             href="#"
                                             target="_blank"
                                             rel="noopener noreferrer"
