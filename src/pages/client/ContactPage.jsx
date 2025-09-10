@@ -1,11 +1,12 @@
+import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
 const ContactPage = () => {
     return (
         <div className="min-h-screen w-full bg-[#EDF6EE]">
             {/* Hero Banner Section */}
-            <div className="h-[55vh] w-full bg-[linear-gradient(to_top,rgba(90,177,101,0.6),rgba(90,177,101,0)),url('/ContactsPageBanner.jpg')] bg-cover bg-center">
-                <Header />
+            <div className="h-[55vh] w-full bg-[linear-gradient(to_top,rgba(90,177,101,0.6),rgba(90,177,101,0)),url('/ContactsPageBanner.jpg')] z-10 flex py-[10px] bg-cover bg-center">
+                <Header headerImage="public\footer-logo.png" navBarColor="text-white" />
             </div>
 
             {/* Form Section */}
@@ -97,7 +98,7 @@ const ContactPage = () => {
                         {/* Left: Hero + Social */}
                         <div className="relative h-80 md:h-auto">
                             <div
-                                className="absolute inset-0 bg-cover bg-center"
+                                className="absolute inset-0 bg-cover bg-center pointer-events-none"
                                 style={{
                                     backgroundImage:
                                         "linear-gradient(rgba(16,185,129,0.12), rgba(16,185,129,0.04)), url('/ContactsPageBackground2.jpg')",
@@ -244,6 +245,9 @@ const ContactPage = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div>
+                <Footer />
             </div>
         </div>
     );
