@@ -56,12 +56,11 @@ const ProductOverview = () => {
     const goToSlide = (index) => setCurrentSlide(index);
 
     return (
-        <>
-            <div className="w-full min-h-screen bg-[#EDF6EE] flex flex-col">
-                <div className="py-[10px]">
-                    <Header navBarColor="text-black" headerImage="public\logo.png" />
-                </div>
-
+        <div className="bg-[#EDF6EE]">
+            <div className="mb-6">
+                <Header navBarColor="text-black" headerImage="public/logo.png" />
+            </div>
+            <div className="w-full min-h-screen flex flex-col">
                 {status === "loading" && <Loader />}
                 {status === "error" && <div className="text-center text-red-500 py-10">ERROR</div>}
 
@@ -209,9 +208,9 @@ const ProductOverview = () => {
                         </div>
                     </div>
                 )}
-                <Footer />
             </div>
-        </>
+            <Footer />
+        </div>
     );
 };
 

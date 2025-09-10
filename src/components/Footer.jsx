@@ -15,20 +15,20 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12 h-full">
                 {/* Contact Details */}
                 <div className="flex-1 w-full lg:w-auto">
-                    <h3 className="text-lg font-bold mb-6 relative pb-2 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-12 after:bg-green-500">
+                    <h3 className="text-lg font-bold mb-6 relative pb-2 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-12 after:bg-[#1B9C85]">
                         CONTACT DETAILS
                     </h3>
                     <ul className="space-y-4 text-gray-300">
                         <li className="flex items-start gap-4 transition-transform hover:translate-x-1">
-                            <FaPhoneAlt className="text-green-500 mt-1 flex-shrink-0" />
+                            <FaPhoneAlt className="text-[#1B9C85] mt-1 flex-shrink-0" />
                             <span className="text-base">929-242-6868</span>
                         </li>
                         <li className="flex items-start gap-4 transition-transform hover:translate-x-1">
-                            <FaEnvelope className="text-green-500 mt-1 flex-shrink-0" />
+                            <FaEnvelope className="text-[#1B9C85] mt-1 flex-shrink-0" />
                             <span className="text-base">contact@info.com</span>
                         </li>
                         <li className="flex items-start gap-4 transition-transform hover:translate-x-1">
-                            <FaMapMarkerAlt className="text-green-500 mt-1 flex-shrink-0" />
+                            <FaMapMarkerAlt className="text-[#1B9C85] mt-1 flex-shrink-0" />
                             <span className="text-base">123 Fifth Avenue, New York, NY 10160</span>
                         </li>
                     </ul>
@@ -43,34 +43,34 @@ const Footer = () => {
 
                 {/* Quick Links */}
                 <div className="flex-1 w-full lg:w-auto">
-                    <h3 className="text-lg font-bold mb-6 relative pb-2 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-12 after:bg-green-500">
+                    <h3 className="text-lg font-bold mb-6 relative pb-2 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-12 after:bg-[#1B9C85]">
                         QUICK LINKS
                     </h3>
                     <ul className="space-y-4 text-gray-300">
                         <li>
                             <a
                                 href="#"
-                                className="text-base hover:text-green-500 transition-colors flex items-center group"
+                                className="text-base hover:text-[#1B9C85] transition-colors flex items-center group"
                             >
-                                <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                <span className="w-2 h-2 bg-[#1B9C85] rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                                 Shipping & Returns
                             </a>
                         </li>
                         <li>
                             <a
                                 href="#"
-                                className="text-base hover:text-green-500 transition-colors flex items-center group"
+                                className="text-base hover:text-[#1B9C85] transition-colors flex items-center group"
                             >
-                                <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                <span className="w-2 h-2 bg-[#1B9C85] rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                                 Contact
                             </a>
                         </li>
                         <li>
                             <a
                                 href="#"
-                                className="text-base hover:text-green-500 transition-colors flex items-center group"
+                                className="text-base hover:text-[#1B9C85] transition-colors flex items-center group"
                             >
-                                <span className="w-2 h-2 bg-green-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                <span className="w-2 h-2 bg-[#1B9C85] rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                                 Customer Service
                             </a>
                         </li>

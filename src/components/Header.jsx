@@ -19,11 +19,6 @@ const Header = ({ navBarColor, headerImage }) => {
                     className="text-3xl text-accent cursor-pointer hover:rotate-90 transition-transform duration-300"
                     onClick={() => setIsOpen(true)}
                 />
-
-                {/* Center: Logo */}
-                <div className="flex items-center justify-center">
-                    <img src="/Logo.png" alt="Logo" className="h-10 w-auto object-contain" />
-                </div>
             </div>
 
             <div
@@ -60,25 +55,31 @@ const Header = ({ navBarColor, headerImage }) => {
                                 to="/"
                                 className="text-lg font-medium text-gray-700 hover:text-accent hover:translate-x-2 transition-all duration-200"
                             >
-                                Home
+                                HOME
                             </Link>
                             <Link
                                 to="/products"
                                 className="text-lg font-medium text-gray-700 hover:text-accent hover:translate-x-2 transition-all duration-200"
                             >
-                                Products
-                            </Link>
-                            <Link
-                                to="/contact"
-                                className="text-lg font-medium text-gray-700 hover:text-accent hover:translate-x-2 transition-all duration-200"
-                            >
-                                Contact Us
+                                SHOP
                             </Link>
                             <Link
                                 to="/reviews"
                                 className="text-lg font-medium text-gray-700 hover:text-accent hover:translate-x-2 transition-all duration-200"
                             >
-                                Reviews
+                                TESTIMONIALS
+                            </Link>
+                            <Link
+                                to="/contacts"
+                                className="text-lg font-medium text-gray-700 hover:text-accent hover:translate-x-2 transition-all duration-200"
+                            >
+                                CONTACT
+                            </Link>
+                            <Link
+                                to="/about"
+                                className="text-lg font-medium text-gray-700 hover:text-accent hover:translate-x-2 transition-all duration-200"
+                            >
+                                ABOUT
                             </Link>
                             <Link
                                 to="/cart"
@@ -88,7 +89,6 @@ const Header = ({ navBarColor, headerImage }) => {
                             </Link>
                         </nav>
 
-                        {/* Extra section (Optional: footer, buttons, etc.) */}
                         <div className="mt-auto pt-6 border-t border-gray-200 w-full">
                             <p className="text-sm text-gray-500">© 2025 CRISTAL BEAUTY & CLEAR</p>
                         </div>
