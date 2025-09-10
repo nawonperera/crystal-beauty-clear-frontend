@@ -9,6 +9,7 @@ import AdminOrdersPage from "./admin/AdminOrdersPage";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import axios from "axios";
+import AdminUsersPage from "./admin/AdminUsersPage";
 
 const AdminPage = () => {
     const [userValidated, setUserValidated] = useState(false);
@@ -45,7 +46,7 @@ const AdminPage = () => {
     }, []);
 
     return (
-        <div className="w-full h-screen bg-gray-200 flex p-2">
+        <div className="w-full h-min-screen bg-gray-200 flex p-2">
             {userValidated ? (
                 <>
                     <div className="h-full w-[200px] ">
@@ -64,7 +65,7 @@ const AdminPage = () => {
                     </div>
                     <div className="h-full bg-white w-[calc(100vw-100px)] rounded-lg">
                         <Routes path="/*">
-                            <Route path="/users" element={<h1>Users</h1>} />
+                            <Route path="/users" element={<AdminUsersPage />} />
                             <Route path="/products" element={<AdminProductsPage />} />
                             <Route path="/orders" element={<AdminOrdersPage />} />
                             <Route path="/addProduct" element={<AddProductForm />} />
