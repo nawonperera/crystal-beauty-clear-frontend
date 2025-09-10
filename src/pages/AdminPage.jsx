@@ -48,7 +48,7 @@ const AdminPage = () => {
         <div className="w-full h-screen bg-gray-200 flex p-2">
             {userValidated ? (
                 <>
-                    <div className="h-full w-[300px] ">
+                    <div className="h-full w-[200px] ">
                         <Link to="/admin/users" className=" p-2 flex items-center">
                             <FaUsers className="mr-2" />
                             Users
@@ -62,7 +62,7 @@ const AdminPage = () => {
                             Orders
                         </Link>
                     </div>
-                    <div className="h-full bg-white w-[calc(100vw-300px)] rounded-lg">
+                    <div className="h-full bg-white w-[calc(100vw-100px)] rounded-lg">
                         <Routes path="/*">
                             <Route path="/users" element={<h1>Users</h1>} />
                             <Route path="/products" element={<AdminProductsPage />} />

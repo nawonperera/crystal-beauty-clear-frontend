@@ -37,7 +37,7 @@ const AddProductForm = () => {
                 images: result,
             };
             const token = localStorage.getItem("token");
-            console.log(token);
+            //console.log(token);
 
             await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/product", product, {
                 headers: {
