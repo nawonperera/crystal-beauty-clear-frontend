@@ -105,7 +105,7 @@ const Cart = () => {
                 headers: { Authorization: `Bearer ${token}` },
             });
             toast.success("Order placed successfully!");
-            navigate("/orders");
+            navigate("/");
         } catch (error) {
             console.error("Order placement error:", error);
             toast.error(error.response?.data?.message || "Failed to place order. Please try again.");

@@ -25,11 +25,11 @@ const Footer = () => {
                         </li>
                         <li className="flex items-start gap-4 transition-transform hover:translate-x-1">
                             <FaEnvelope className="text-[#1B9C85] mt-1 flex-shrink-0" />
-                            <span className="text-base">contact@info.com</span>
+                            <span className="text-base">nawon@info.com</span>
                         </li>
                         <li className="flex items-start gap-4 transition-transform hover:translate-x-1">
                             <FaMapMarkerAlt className="text-[#1B9C85] mt-1 flex-shrink-0" />
-                            <span className="text-base">123 Fifth Avenue, New York, NY 10160</span>
+                            <span className="text-base">123 nawon, Kandy, Sri Lanka</span>
                         </li>
                     </ul>
                 </div>

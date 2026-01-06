@@ -3,8 +3,49 @@ import Header from "../../components/Header";
 import { FiMail, FiPhone, FiMapPin, FiClock, FiSend, FiArrowRight } from "react-icons/fi";
 import { FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
+import { useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const ContactPage = () => {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!firstName || !email || !message) {
+            toast.error("Please fill in all required fields");
+            return;
+        }
+
+        setLoading(true);
+        try {
+            await axios.post(import.meta.env.VITE_BACKEND_URL + "/api/message", {
+                firstName,
+                lastName,
+                email,
+                phone,
+                message,
+            });
+            toast.success("Message sent successfully!");
+            // Clear form
+            setFirstName("");
+            setLastName("");
+            setEmail("");
+            setPhone("");
+            setMessage("");
+        } catch (error) {
+            toast.error("Failed to send message. Please try again.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className="min-h-screen w-full bg-[#EDF6EE] overflow-x-hidden">
             {/* Hero Banner Section */}
@@ -22,7 +63,7 @@ const ContactPage = () => {
                 <Header headerImage="public\footer-logo.png" navBarColor="text-white" />
 
                 {/* Hero Content */}
-                <div className="flex-1 flex items-center justify-center text-center px-4 relative z-10">
+                <div className="flex-1 flex items-center justify-center text-center px-4 pb-24 relative z-10">
                     <div className="max-w-4xl">
                         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
                             <HiSparkles className="w-4 h-4 text-green-300" />
@@ -38,7 +79,8 @@ const ContactPage = () => {
                             </span>
                         </h1>
                         <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-                            Have questions? We would love to hear from you. Send us a message and we will respond as soon as possible.
+                            Have questions? We would love to hear from you. Send us a message and we will respond as
+                            soon as possible.
                         </p>
                     </div>
                 </div>
@@ -93,12 +135,10 @@ const ContactPage = () => {
                                     <span className="inline-block text-[#1B9C85] font-semibold tracking-widest uppercase text-sm mb-4">
                                         Message Us
                                     </span>
-                                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                                        Send us a Message
-                                    </h2>
+                                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Send us a Message</h2>
                                 </div>
 
-                                <form className="space-y-6">
+                                <form onSubmit={handleSubmit} className="space-y-6">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                         <div className="group">
                                             <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -108,6 +148,8 @@ const ContactPage = () => {
                                                 required
                                                 type="text"
                                                 placeholder="John"
+                                                value={firstName}
+                                                onChange={(e) => setFirstName(e.target.value)}
                                                 className="w-full border-2 border-gray-100 rounded-xl px-5 py-4 text-gray-700 bg-gray-50/50 focus:outline-none focus:border-[#1B9C85] focus:bg-white transition-all duration-300"
                                             />
                                         </div>
@@ -118,6 +160,8 @@ const ContactPage = () => {
                                             <input
                                                 type="text"
                                                 placeholder="Doe"
+                                                value={lastName}
+                                                onChange={(e) => setLastName(e.target.value)}
                                                 className="w-full border-2 border-gray-100 rounded-xl px-5 py-4 text-gray-700 bg-gray-50/50 focus:outline-none focus:border-[#1B9C85] focus:bg-white transition-all duration-300"
                                             />
                                         </div>
@@ -131,6 +175,8 @@ const ContactPage = () => {
                                             required
                                             type="email"
                                             placeholder="you@example.com"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
                                             className="w-full border-2 border-gray-100 rounded-xl px-5 py-4 text-gray-700 bg-gray-50/50 focus:outline-none focus:border-[#1B9C85] focus:bg-white transition-all duration-300"
                                         />
                                     </div>
@@ -142,6 +188,8 @@ const ContactPage = () => {
                                         <input
                                             type="tel"
                                             placeholder="+94 77 123 4567"
+                                            value={phone}
+                                            onChange={(e) => setPhone(e.target.value)}
                                             className="w-full border-2 border-gray-100 rounded-xl px-5 py-4 text-gray-700 bg-gray-50/50 focus:outline-none focus:border-[#1B9C85] focus:bg-white transition-all duration-300"
                                         />
                                     </div>
@@ -154,16 +202,28 @@ const ContactPage = () => {
                                             required
                                             rows="5"
                                             placeholder="Write your message here..."
+                                            value={message}
+                                            onChange={(e) => setMessage(e.target.value)}
                                             className="w-full border-2 border-gray-100 rounded-xl px-5 py-4 text-gray-700 bg-gray-50/50 focus:outline-none focus:border-[#1B9C85] focus:bg-white transition-all duration-300 resize-none"
                                         />
                                     </div>
 
                                     <button
                                         type="submit"
-                                        className="group w-full px-8 py-4 bg-gradient-to-r from-[#1B9C85] to-emerald-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#1B9C85]/30 transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-3"
+                                        disabled={loading}
+                                        className="group w-full px-8 py-4 bg-gradient-to-r from-[#1B9C85] to-emerald-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#1B9C85]/30 transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                                     >
-                                        <FiSend className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                        Send Message
+                                        {loading ? (
+                                            <>
+                                                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                                Sending...
+                                            </>
+                                        ) : (
+                                            <>
+                                                <FiSend className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                                Send Message
+                                            </>
+                                        )}
                                     </button>
                                 </form>
                             </div>
@@ -178,11 +238,12 @@ const ContactPage = () => {
                                     <div className="absolute inset-0 bg-white/5"></div>
                                     <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-300/20 rounded-full blur-2xl"></div>
                                     <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-teal-300/20 rounded-full blur-2xl"></div>
-                                    
+
                                     <div className="relative z-10">
                                         <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
                                         <p className="text-white/80 mb-8 leading-relaxed">
-                                            We would love to hear from you. Whether you have a question about our products, pricing, or anything else — our team is ready to answer.
+                                            We would love to hear from you. Whether you have a question about our
+                                            products, pricing, or anything else — our team is ready to answer.
                                         </p>
 
                                         <div className="space-y-6">
@@ -192,7 +253,7 @@ const ContactPage = () => {
                                                 </div>
                                                 <div>
                                                     <p className="font-semibold">Our Location</p>
-                                                    <p className="text-white/70 text-sm">123 Fifth Avenue, New York, NY 10160</p>
+                                                    <p className="text-white/70 text-sm">123 nawon, Kandy, Sri Lanka</p>
                                                 </div>
                                             </div>
 
@@ -212,7 +273,7 @@ const ContactPage = () => {
                                                 </div>
                                                 <div>
                                                     <p className="font-semibold">Email Address</p>
-                                                    <p className="text-white/70 text-sm">hello@cristalbeauty.com</p>
+                                                    <p className="text-white/70 text-sm">nawon@info.com</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -242,7 +303,9 @@ const ContactPage = () => {
                             <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold text-gray-800 mb-2">Find Us on Map</h3>
-                                    <p className="text-gray-600 text-sm mb-4">Visit our store for a personalized experience</p>
+                                    <p className="text-gray-600 text-sm mb-4">
+                                        Visit our store for a personalized experience
+                                    </p>
                                 </div>
                                 <div className="relative">
                                     <iframe
@@ -275,7 +338,9 @@ const ContactPage = () => {
                         <span className="inline-block text-[#1B9C85] font-semibold tracking-widest uppercase text-sm mb-4">
                             FAQ
                         </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Frequently Asked Questions
+                        </h2>
                         <p className="text-xl text-gray-600">Quick answers to common questions</p>
                     </div>
 
@@ -285,7 +350,8 @@ const ContactPage = () => {
                                 What are your delivery options?
                             </h3>
                             <p className="text-gray-600">
-                                We offer island-wide delivery across Sri Lanka. Standard delivery takes 3-5 business days, while express delivery is available for 1-2 business days.
+                                We offer island-wide delivery across Sri Lanka. Standard delivery takes 3-5 business
+                                days, while express delivery is available for 1-2 business days.
                             </p>
                         </div>
 
@@ -294,7 +360,8 @@ const ContactPage = () => {
                                 Do you offer returns and exchanges?
                             </h3>
                             <p className="text-gray-600">
-                                Yes, we have a 14-day return policy for unopened products. Please contact our customer service team to initiate a return or exchange.
+                                Yes, we have a 14-day return policy for unopened products. Please contact our customer
+                                service team to initiate a return or exchange.
                             </p>
                         </div>
 
@@ -303,7 +370,8 @@ const ContactPage = () => {
                                 Are your products cruelty-free?
                             </h3>
                             <p className="text-gray-600">
-                                Absolutely! We are committed to offering only cruelty-free products. None of our products are tested on animals.
+                                Absolutely! We are committed to offering only cruelty-free products. None of our
+                                products are tested on animals.
                             </p>
                         </div>
 
@@ -312,7 +380,8 @@ const ContactPage = () => {
                                 How can I track my order?
                             </h3>
                             <p className="text-gray-600">
-                                Once your order is shipped, you will receive a tracking number via email and SMS. You can use this to track your package in real-time.
+                                Once your order is shipped, you will receive a tracking number via email and SMS. You
+                                can use this to track your package in real-time.
                             </p>
                         </div>
                     </div>
