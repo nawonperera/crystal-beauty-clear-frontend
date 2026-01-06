@@ -102,7 +102,7 @@ const ContactPage = () => {
                             <FiMail className="w-6 h-6 text-white" />
                         </div>
                         <h3 className="text-lg font-bold text-gray-800 mb-2">Email Us</h3>
-                        <p className="text-gray-600 text-sm">hello@cristal.com</p>
+                        <p className="text-gray-600 text-sm">nawon@info.com</p>
                     </div>
 
                     <div className="group bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
@@ -110,7 +110,7 @@ const ContactPage = () => {
                             <FiMapPin className="w-6 h-6 text-white" />
                         </div>
                         <h3 className="text-lg font-bold text-gray-800 mb-2">Visit Us</h3>
-                        <p className="text-gray-600 text-sm">123 Fifth Avenue, NY</p>
+                        <p className="text-gray-600 text-sm">123 Kandy, SL</p>
                     </div>
 
                     <div className="group bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
