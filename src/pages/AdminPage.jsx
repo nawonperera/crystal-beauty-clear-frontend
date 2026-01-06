@@ -46,7 +46,7 @@ const AdminPage = () => {
     }, []);
 
     return (
-        <div className="w-full h-min-screen bg-gray-200 flex p-2">
+        <div className="w-full h-min-screen h-screen bg-gray-200 flex p-2">
             {userValidated ? (
                 <>
                     <div className="h-full w-[200px] ">

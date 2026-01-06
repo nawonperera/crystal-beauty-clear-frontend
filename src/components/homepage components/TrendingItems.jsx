@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 const TrendingItems = () => {
     const [productList, setProductList] = useState([]);
     const [productsLoaded, setProductsLoaded] = useState(false);
-    const shadowStyle = "shadow-lg";
 
     useEffect(() => {
         if (!productsLoaded) {
@@ -20,9 +19,9 @@ const TrendingItems = () => {
     return (
         <div className="h-full w-full">
             {productsLoaded ? (
-                <div className="w-full h-full flex justify-between flex-wrap">
-                    {productList.slice(0, 9).map((product) => {
-                        return <ProductCards key={product.productID} product={product} shadow={shadowStyle} />;
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    {productList.slice(0, 6).map((product) => {
+                        return <ProductCards key={product.productID} product={product} />;
                     })}
                 </div>
             ) : (

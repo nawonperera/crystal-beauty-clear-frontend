@@ -4,7 +4,7 @@ import Loader from "../../components/Loader";
 import axios from "axios";
 import { SiTicktick } from "react-icons/si";
 import { MdBlock } from "react-icons/md";
-import { blockUser, unblockUser } from "../../utils/block.js";
+import toast from "react-hot-toast";
 
 const AdminUsersPage = () => {
     const [users, setUsers] = useState([]);
@@ -14,22 +14,63 @@ const AdminUsersPage = () => {
     useEffect(() => {
         if (!loaded) {
             axios.get(import.meta.env.VITE_BACKEND_URL + "/api/user").then((response) => {
-                console.log(response.data);
+                //console.log(response.data);
                 setUsers(response.data);
                 setLoaded(true);
             });
         }
     }, [loaded]);
 
+    async function blockUser(email) {
+        const token = localStorage.getItem("token");
+        if (token == null) {
+            toast.error("Please login to block a user");
+            return;
+        }
+        try {
+            await axios.patch(
+                import.meta.env.VITE_BACKEND_URL + "/api/user/block/" + email,
+                { isDisabled: true },
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                },
+            );
+            setLoaded(false);
+            toast.success("User blocked successfully");
+        } catch (error) {
+            console.log(error);
+            toast.error("Error blocking user");
+        }
+    }
+
+    async function unblockUser(email) {
+        const token = localStorage.getItem("token");
+        if (token == null) {
+            toast.error("Please login to block a user");
+            return;
+        }
+        try {
+            await axios.patch(
+                import.meta.env.VITE_BACKEND_URL + "/api/user/unblock/" + email,
+                { isDisabled: false },
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                },
+            );
+            setLoaded(false);
+            toast.success("User blocked successfully");
+        } catch (error) {
+            console.log(error);
+            toast.error("Error blocking user");
+        }
+    }
+
     return (
         <div className="w-full h-full rounded-lg relative">
-            {/* <Link
-                to={"/admin/addProduct"}
-                className="text-white absolute bg-gray-700 p-[12px] text-3xl rounded-full cursor-pointer hover:bg-gray-300 hover:text-gray-700 right-5 bottom-5"
-            >
-                <FaPlus />
-            </Link> */}
-
             {loaded && (
                 <table className="w-full">
                     <thead>

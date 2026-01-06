@@ -6,6 +6,9 @@ import Cart from "./client/Cart.jsx";
 import Checkout from "./client/Checkout.jsx";
 import Home from "./client/Home.jsx";
 import ContactPage from "./client/ContactPage.jsx";
+import AboutPage from "./client/AboutPage.jsx";
+import TestimonialsPage from "./client/TestimonialsPage.jsx";
+import WishlistPage from "./client/WishlistPage.jsx";
 
 const HomePage = () => {
     return (
@@ -20,6 +23,10 @@ const HomePage = () => {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/checkout" element={<Checkout />} />
                     <Route path="/contacts" element={<ContactPage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/reviews" element={<TestimonialsPage />} />
+                    <Route path="/testimonials" element={<TestimonialsPage />} />
+                    <Route path="/wishlist" element={<WishlistPage />} />
                     <Route path="/*" element={<h1>404 Not Found</h1>} />
                 </Routes>
             </div>
