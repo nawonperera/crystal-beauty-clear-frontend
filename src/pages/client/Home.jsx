@@ -39,15 +39,15 @@ const Home = () => {
                         transform: `scale(${1 + scrollY * 0.0002})`,
                     }}
                 ></div>
-                
+
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
-                
+
                 <div className="relative z-10 flex flex-col w-full h-full">
                     <div className="py-[10px]">
                         <Header headerImage="public\footer-logo.png" navBarColor="text-white" />
                     </div>
-                    
+
                     {/* Hero Content */}
                     <div className="flex-1 flex items-center px-8 lg:px-20">
                         <div className="max-w-xl animate-fadeIn">
@@ -59,8 +59,8 @@ const Home = () => {
                                 <span className="block text-[#1B9C85]">Natural Beauty</span>
                             </h1>
                             <p className="text-gray-200 text-base md:text-lg mb-8 leading-relaxed">
-                                Premium skincare and cosmetics crafted to enhance your natural glow. 
-                                Experience luxury beauty that cares for you.
+                                Premium skincare and cosmetics crafted to enhance your natural glow. Experience luxury
+                                beauty that cares for you.
                             </p>
                             <div className="flex flex-wrap gap-4">
                                 <Link
@@ -78,9 +78,12 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    
+
                     {/* Scroll Indicator */}
-                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer animate-bounce" onClick={scrollToContent}>
+                    <div
+                        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer animate-bounce"
+                        onClick={scrollToContent}
+                    >
                         <span className="text-white text-sm mb-2 tracking-wider">SCROLL</span>
                         <FaArrowDown className="text-white text-xl" />
                     </div>
@@ -103,14 +106,15 @@ const Home = () => {
                         </h2>
                         <div className="w-20 h-1 bg-[#1B9C85] rounded-full mb-6"></div>
                         <p className="text-gray-600 text-center max-w-2xl text-base md:text-lg">
-                            Explore our curated collection of premium beauty products designed to enhance your natural radiance.
+                            Explore our curated collection of premium beauty products designed to enhance your natural
+                            radiance.
                         </p>
                     </div>
 
                     <div className="w-full">
                         <TrendingItems />
                     </div>
-                    
+
                     <div className="w-full flex justify-center mt-12">
                         <Link
                             to="/products"
@@ -132,7 +136,13 @@ const Home = () => {
                 <div className="w-[90%] lg:w-[80%] xl:w-[75%] mx-auto">
                     <div className="w-full flex flex-col lg:flex-row justify-center items-center rounded-3xl overflow-hidden bg-gradient-to-br from-[#F8F8FA] to-[#EDF6EE] shadow-xl">
                         <div className="hidden lg:flex w-full lg:w-[55%] h-[500px]">
-                            <video className="w-full h-full object-cover" controls autoPlay loop muted>
+                            <video
+                                className="w-full h-full object-cover pointer-events-none"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                            >
                                 <source src="public\Homepage video.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
@@ -149,8 +159,8 @@ const Home = () => {
                                 </h2>
 
                                 <p className="text-gray-600 text-center lg:text-left mb-8 leading-relaxed">
-                                    Discover styles that bring out your confidence and redefine the way you shine every day. 
-                                    Our products are crafted with care to help you look and feel your best.
+                                    Discover styles that bring out your confidence and redefine the way you shine every
+                                    day. Our products are crafted with care to help you look and feel your best.
                                 </p>
 
                                 <Link
@@ -172,11 +182,9 @@ const Home = () => {
                         <span className="inline-block px-4 py-2 bg-[#1B9C85]/10 text-[#1B9C85] text-sm font-semibold rounded-full mb-4 tracking-wider">
                             WHY CHOOSE US
                         </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                            We Care About Your Beauty
-                        </h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">We Care About Your Beauty</h2>
                     </div>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center">
                             <div className="w-20 h-20 mx-auto mb-6 text-4xl flex justify-center items-center rounded-2xl bg-gradient-to-br from-[#1B9C85]/10 to-[#1B9C85]/20 text-[#1B9C85] group-hover:bg-[#1B9C85] group-hover:text-white transition-all duration-300">
@@ -187,7 +195,7 @@ const Home = () => {
                                 Summer beauty made easy. Get your favorite cosmetics at hot prices!
                             </p>
                         </div>
-                        
+
                         <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center">
                             <div className="w-20 h-20 mx-auto mb-6 text-4xl flex justify-center items-center rounded-2xl bg-gradient-to-br from-[#1B9C85]/10 to-[#1B9C85]/20 text-[#1B9C85] group-hover:bg-[#1B9C85] group-hover:text-white transition-all duration-300">
                                 <FaShippingFast />
@@ -197,7 +205,7 @@ const Home = () => {
                                 Beauty delivered to your door with no shipping fees on all orders!
                             </p>
                         </div>
-                        
+
                         <div className="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center">
                             <div className="w-20 h-20 mx-auto mb-6 text-4xl flex justify-center items-center rounded-2xl bg-gradient-to-br from-[#1B9C85]/10 to-[#1B9C85]/20 text-[#1B9C85] group-hover:bg-[#1B9C85] group-hover:text-white transition-all duration-300">
                                 <FaUserShield />

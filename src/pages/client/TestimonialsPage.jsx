@@ -18,7 +18,7 @@ const TestimonialsPage = () => {
             category: "skincare",
             text: "I have been using Cristal Beauty products for over a year now, and my skin has never looked better! The natural ingredients really make a difference. Highly recommend their vitamin C serum!",
             product: "Vitamin C Serum",
-            date: "2 weeks ago"
+            date: "2 weeks ago",
         },
         {
             id: 2,
@@ -29,7 +29,7 @@ const TestimonialsPage = () => {
             category: "haircare",
             text: "Amazing quality products and super fast delivery! I ordered the hair care bundle and it arrived within 2 days. The packaging was beautiful and the products smell incredible.",
             product: "Hair Care Bundle",
-            date: "1 month ago"
+            date: "1 month ago",
         },
         {
             id: 3,
@@ -40,7 +40,7 @@ const TestimonialsPage = () => {
             category: "skincare",
             text: "Finally found a brand that understands sensitive skin! Their gentle cleanser is a game-changer. No irritation, just clean and fresh skin every time.",
             product: "Gentle Cleanser",
-            date: "3 weeks ago"
+            date: "3 weeks ago",
         },
         {
             id: 4,
@@ -51,7 +51,7 @@ const TestimonialsPage = () => {
             category: "makeup",
             text: "Great selection of makeup products. The lipsticks are long-lasting and the colors are gorgeous. Customer service was also very helpful when I had questions.",
             product: "Matte Lipstick Collection",
-            date: "1 week ago"
+            date: "1 week ago",
         },
         {
             id: 5,
@@ -62,7 +62,7 @@ const TestimonialsPage = () => {
             category: "skincare",
             text: "The anti-aging cream is worth every penny! I have noticed visible improvements in my skin texture within just 3 weeks. My friends keep asking what my secret is!",
             product: "Anti-Aging Cream",
-            date: "2 months ago"
+            date: "2 months ago",
         },
         {
             id: 6,
@@ -73,15 +73,15 @@ const TestimonialsPage = () => {
             category: "gifts",
             text: "Bought a gift set for my wife's birthday and she absolutely loved it! The presentation was stunning and the products are top-notch. Will definitely be back for more.",
             product: "Luxury Gift Set",
-            date: "1 month ago"
-        }
+            date: "1 month ago",
+        },
     ];
 
     const stats = [
         { number: "5000+", label: "Happy Customers" },
         { number: "4.8", label: "Average Rating" },
         { number: "98%", label: "Would Recommend" },
-        { number: "500+", label: "5-Star Reviews" }
+        { number: "500+", label: "5-Star Reviews" },
     ];
 
     const filters = [
@@ -89,19 +89,15 @@ const TestimonialsPage = () => {
         { id: "skincare", label: "Skincare" },
         { id: "haircare", label: "Hair Care" },
         { id: "makeup", label: "Makeup" },
-        { id: "gifts", label: "Gifts" }
+        { id: "gifts", label: "Gifts" },
     ];
 
-    const filteredTestimonials = activeFilter === "all" 
-        ? testimonials 
-        : testimonials.filter(t => t.category === activeFilter);
+    const filteredTestimonials =
+        activeFilter === "all" ? testimonials : testimonials.filter((t) => t.category === activeFilter);
 
     const renderStars = (rating) => {
         return [...Array(5)].map((_, i) => (
-            <FiStar
-                key={i}
-                className={`w-5 h-5 ${i < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}`}
-            />
+            <FiStar key={i} className={`w-5 h-5 ${i < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}`} />
         ));
     };
 
@@ -169,15 +165,15 @@ const TestimonialsPage = () => {
                             <div className="absolute inset-0 bg-white/5"></div>
                             <div className="absolute -top-20 -right-20 w-64 h-64 bg-green-300/20 rounded-full blur-3xl"></div>
                             <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-teal-300/20 rounded-full blur-3xl"></div>
-                            
+
                             <div className="relative z-10 max-w-4xl mx-auto text-center">
                                 <FaQuoteLeft className="w-12 h-12 text-white/30 mx-auto mb-6" />
                                 <p className="text-2xl md:text-3xl font-medium leading-relaxed mb-8 text-white/95">
-                                    "Cristal Beauty has completely transformed my skincare routine. The quality of their products is unmatched, and the results speak for themselves. I have never felt more confident in my skin!"
+                                    "Cristal Beauty has completely transformed my skincare routine. The quality of their
+                                    products is unmatched, and the results speak for themselves. I have never felt more
+                                    confident in my skin!"
                                 </p>
-                                <div className="flex items-center justify-center gap-1 mb-4">
-                                    {renderStars(5)}
-                                </div>
+                                <div className="flex items-center justify-center gap-1 mb-4">{renderStars(5)}</div>
                                 <div className="flex items-center justify-center gap-4">
                                     <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-2xl font-bold">
                                         SP
@@ -231,17 +227,13 @@ const TestimonialsPage = () => {
                                 className="group bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
                             >
                                 <div className="flex items-center justify-between mb-6">
-                                    <div className="flex items-center gap-1">
-                                        {renderStars(testimonial.rating)}
-                                    </div>
+                                    <div className="flex items-center gap-1">{renderStars(testimonial.rating)}</div>
                                     <span className="text-sm text-gray-400">{testimonial.date}</span>
                                 </div>
 
                                 <div className="relative mb-6">
                                     <FaQuoteLeft className="absolute -top-2 -left-2 w-8 h-8 text-[#1B9C85]/10" />
-                                    <p className="text-gray-600 leading-relaxed pl-6">
-                                        {testimonial.text}
-                                    </p>
+                                    <p className="text-gray-600 leading-relaxed pl-6">{testimonial.text}</p>
                                 </div>
 
                                 <div className="inline-block px-4 py-2 bg-[#1B9C85]/10 text-[#1B9C85] text-sm font-medium rounded-full mb-6">
@@ -250,7 +242,10 @@ const TestimonialsPage = () => {
 
                                 <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
                                     <div className="w-12 h-12 bg-gradient-to-br from-[#1B9C85] to-emerald-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg shadow-[#1B9C85]/30">
-                                        {testimonial.name.split(" ").map(n => n[0]).join("")}
+                                        {testimonial.name
+                                            .split(" ")
+                                            .map((n) => n[0])
+                                            .join("")}
                                     </div>
                                     <div>
                                         <p className="font-bold text-gray-800">{testimonial.name}</p>
@@ -280,7 +275,7 @@ const TestimonialsPage = () => {
                         <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-12 md:p-16 text-center overflow-hidden">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-[#1B9C85]/20 rounded-full blur-3xl"></div>
                             <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/20 rounded-full blur-3xl"></div>
-                            
+
                             <div className="relative z-10">
                                 <div className="w-20 h-20 bg-gradient-to-br from-[#1B9C85] to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#1B9C85]/30">
                                     <FiStar className="w-10 h-10 text-white" />
@@ -289,7 +284,8 @@ const TestimonialsPage = () => {
                                     Share Your Experience
                                 </h3>
                                 <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-                                    Loved our products? We would love to hear about your experience! Your review helps others discover Cristal Beauty.
+                                    Loved our products? We would love to hear about your experience! Your review helps
+                                    others discover Cristal Beauty.
                                 </p>
                                 <button className="group px-8 py-4 bg-gradient-to-r from-[#1B9C85] to-emerald-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#1B9C85]/30 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2 mx-auto">
                                     Write a Review
@@ -310,8 +306,18 @@ const TestimonialsPage = () => {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         <div className="bg-white p-6 rounded-2xl shadow-lg text-center group hover:shadow-xl transition-shadow duration-300">
                             <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                <svg
+                                    className="w-8 h-8 text-white"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
                                 </svg>
                             </div>
                             <h3 className="font-bold text-gray-800 mb-1">Verified Reviews</h3>
@@ -320,8 +326,18 @@ const TestimonialsPage = () => {
 
                         <div className="bg-white p-6 rounded-2xl shadow-lg text-center group hover:shadow-xl transition-shadow duration-300">
                             <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                <svg
+                                    className="w-8 h-8 text-white"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                    />
                                 </svg>
                             </div>
                             <h3 className="font-bold text-gray-800 mb-1">Secure Shopping</h3>
@@ -330,8 +346,18 @@ const TestimonialsPage = () => {
 
                         <div className="bg-white p-6 rounded-2xl shadow-lg text-center group hover:shadow-xl transition-shadow duration-300">
                             <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                <svg
+                                    className="w-8 h-8 text-white"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                                    />
                                 </svg>
                             </div>
                             <h3 className="font-bold text-gray-800 mb-1">Easy Payments</h3>
@@ -340,8 +366,18 @@ const TestimonialsPage = () => {
 
                         <div className="bg-white p-6 rounded-2xl shadow-lg text-center group hover:shadow-xl transition-shadow duration-300">
                             <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                <svg
+                                    className="w-8 h-8 text-white"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                                    />
                                 </svg>
                             </div>
                             <h3 className="font-bold text-gray-800 mb-1">Fast Delivery</h3>
@@ -358,11 +394,10 @@ const TestimonialsPage = () => {
                     <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-300/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
                 </div>
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Join Our Happy Customers
-                    </h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Join Our Happy Customers</h2>
                     <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-                        Experience the Cristal Beauty difference and see why thousands trust us for their skincare needs.
+                        Experience the Cristal Beauty difference and see why thousands trust us for their skincare
+                        needs.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button className="group px-8 py-4 bg-white text-[#1B9C85] font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
