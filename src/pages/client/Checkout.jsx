@@ -8,6 +8,7 @@ import { FiShoppingBag, FiUser, FiPhone, FiMapPin, FiCreditCard, FiShield } from
 import { IoArrowBack } from "react-icons/io5";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import { clearCart } from "../../utils/cart";
 
 const Cart = () => {
     const location = useLocation();
@@ -105,6 +106,7 @@ const Cart = () => {
                 headers: { Authorization: `Bearer ${token}` },
             });
             toast.success("Order placed successfully!");
+            clearCart();
             navigate("/");
         } catch (error) {
             console.error("Order placement error:", error);
