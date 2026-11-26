@@ -36,7 +36,7 @@ const ProductsPage = () => {
         setLoading(true);
         try {
             const params = new URLSearchParams();
-            
+
             if (search.trim()) params.append("search", search.trim());
             if (activeCategory !== "all") params.append("category", activeCategory);
             if (priceRange.min) params.append("minPrice", priceRange.min);
@@ -71,12 +71,42 @@ const ProductsPage = () => {
         }
     }, [search, activeCategory, priceRange, sortBy]);
 
+    const handleAISearch = async () => {
+        if (!search.trim()) {
+            fetchProducts(1);
+            return;
+        }
+
+        setLoading(true);
+        try {
+            const params = new URLSearchParams();
+            params.append("query", search.trim());
+
+            const response = await axios.get(
+                `${import.meta.env.VITE_BACKEND_URL}/api/product/aisearch?${params.toString()}`
+            );
+
+            setProductList(response.data);
+            setPagination({
+                currentPage: 1,
+                totalPages: 1,
+                totalProducts: response.data.length,
+                hasMore: false
+            });
+        } catch (error) {
+            console.error("AI product search failed:", error);
+            setProductList([]);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     useEffect(() => {
         fetchProducts(1);
     }, [activeCategory, sortBy]);
 
     const handleSearch = () => {
-        fetchProducts(1);
+        handleAISearch();
     };
 
     const handleKeyPress = (e) => {
@@ -98,7 +128,6 @@ const ProductsPage = () => {
 
     return (
         <div className="min-h-screen w-full bg-[#EDF6EE] overflow-x-hidden">
-            {/* Hero Banner Section */}
             <div className="relative h-[45vh] w-full bg-gradient-to-br from-[#0d5c4f] via-[#1B9C85] to-[#2dd4bf] flex flex-col">
                 <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
@@ -125,7 +154,6 @@ const ProductsPage = () => {
                 </div>
             </div>
 
-            {/* Search Section */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
                 <div className="bg-white rounded-2xl shadow-xl p-4 md:p-6">
                     <div className="flex flex-col md:flex-row gap-4">
@@ -158,7 +186,6 @@ const ProductsPage = () => {
                             <FiSearch className="w-5 h-5" />
                             Search
                         </button>
-                        {/* Mobile Filter Toggle */}
                         <button
                             onClick={() => setShowMobileFilters(!showMobileFilters)}
                             className="lg:hidden px-6 py-4 border-2 border-gray-200 rounded-xl font-semibold text-gray-600 flex items-center justify-center gap-2"
@@ -170,11 +197,9 @@ const ProductsPage = () => {
                 </div>
             </div>
 
-            {/* Main Content - Sidebar + Products */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div className="flex flex-col lg:flex-row gap-8">
-                    
-                    {/* Left Sidebar - Filters (20%) */}
+
                     <aside className={`lg:w-1/5 ${showMobileFilters ? "block" : "hidden lg:block"}`}>
                         <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-6">
                             <div className="flex items-center justify-between mb-6">
@@ -189,7 +214,6 @@ const ProductsPage = () => {
                                 )}
                             </div>
 
-                            {/* Categories */}
                             <div className="mb-8">
                                 <h4 className="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wider">Categories</h4>
                                 <div className="space-y-2">
@@ -197,11 +221,10 @@ const ProductsPage = () => {
                                         <button
                                             key={category.id}
                                             onClick={() => setActiveCategory(category.id)}
-                                            className={`w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
-                                                activeCategory === category.id
+                                            className={`w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-300 ${activeCategory === category.id
                                                     ? "bg-[#1B9C85] text-white shadow-md"
                                                     : "bg-gray-50 text-gray-600 hover:bg-gray-100"
-                                            }`}
+                                                }`}
                                         >
                                             {category.label}
                                         </button>
@@ -209,7 +232,6 @@ const ProductsPage = () => {
                                 </div>
                             </div>
 
-                            {/* Price Range */}
                             <div className="mb-8">
                                 <h4 className="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wider">Price Range</h4>
                                 <div className="space-y-3">
@@ -242,7 +264,6 @@ const ProductsPage = () => {
                                 </div>
                             </div>
 
-                            {/* Sort By */}
                             <div>
                                 <h4 className="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wider">Sort By</h4>
                                 <div className="relative">
@@ -263,9 +284,7 @@ const ProductsPage = () => {
                         </div>
                     </aside>
 
-                    {/* Right Content - Products (80%) */}
                     <main className="lg:w-4/5">
-                        {/* Results Header */}
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
                             <div>
                                 <h2 className="text-2xl font-bold text-gray-900">
@@ -276,22 +295,19 @@ const ProductsPage = () => {
                                 </p>
                             </div>
 
-                            {/* View Toggle */}
                             <div className="flex items-center gap-4">
                                 <div className="hidden sm:flex items-center bg-gray-100 rounded-xl p-1">
                                     <button
                                         onClick={() => setViewMode("grid")}
-                                        className={`p-2.5 rounded-lg transition-all duration-300 ${
-                                            viewMode === "grid" ? "bg-white shadow text-[#1B9C85]" : "text-gray-500 hover:text-gray-700"
-                                        }`}
+                                        className={`p-2.5 rounded-lg transition-all duration-300 ${viewMode === "grid" ? "bg-white shadow text-[#1B9C85]" : "text-gray-500 hover:text-gray-700"
+                                            }`}
                                     >
                                         <FiGrid className="w-5 h-5" />
                                     </button>
                                     <button
                                         onClick={() => setViewMode("list")}
-                                        className={`p-2.5 rounded-lg transition-all duration-300 ${
-                                            viewMode === "list" ? "bg-white shadow text-[#1B9C85]" : "text-gray-500 hover:text-gray-700"
-                                        }`}
+                                        className={`p-2.5 rounded-lg transition-all duration-300 ${viewMode === "list" ? "bg-white shadow text-[#1B9C85]" : "text-gray-500 hover:text-gray-700"
+                                            }`}
                                     >
                                         <FiList className="w-5 h-5" />
                                     </button>
@@ -299,28 +315,25 @@ const ProductsPage = () => {
                             </div>
                         </div>
 
-                        {/* Product Grid */}
                         {loading ? (
                             <div className="flex items-center justify-center py-20">
                                 <Loader />
                             </div>
                         ) : productList.length > 0 ? (
                             <>
-                                <div className={`grid gap-6 ${
-                                    viewMode === "grid" 
-                                        ? "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3" 
+                                <div className={`grid gap-6 ${viewMode === "grid"
+                                        ? "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
                                         : "grid-cols-1"
-                                }`}>
+                                    }`}>
                                     {productList.map((product) => (
-                                        <ProductCards 
-                                            key={product.productID} 
-                                            product={product} 
+                                        <ProductCards
+                                            key={product.productID}
+                                            product={product}
                                             viewMode={viewMode}
                                         />
                                     ))}
                                 </div>
 
-                                {/* Pagination */}
                                 {pagination.totalPages > 1 && (
                                     <div className="flex justify-center items-center gap-2 mt-12">
                                         <button
@@ -330,24 +343,23 @@ const ProductsPage = () => {
                                         >
                                             Previous
                                         </button>
-                                        
+
                                         {[...Array(Math.min(pagination.totalPages, 5))].map((_, index) => {
                                             const pageNum = index + 1;
                                             return (
                                                 <button
                                                     key={pageNum}
                                                     onClick={() => fetchProducts(pageNum)}
-                                                    className={`w-10 h-10 rounded-lg font-medium transition-all ${
-                                                        pagination.currentPage === pageNum
+                                                    className={`w-10 h-10 rounded-lg font-medium transition-all ${pagination.currentPage === pageNum
                                                             ? "bg-[#1B9C85] text-white"
                                                             : "border-2 border-gray-200 text-gray-600 hover:border-[#1B9C85] hover:text-[#1B9C85]"
-                                                    }`}
+                                                        }`}
                                                 >
                                                     {pageNum}
                                                 </button>
                                             );
                                         })}
-                                        
+
                                         <button
                                             onClick={() => fetchProducts(pagination.currentPage + 1)}
                                             disabled={!pagination.hasMore}

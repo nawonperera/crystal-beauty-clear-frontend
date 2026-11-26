@@ -4,7 +4,6 @@
     --color-accent: #1b9c85;
 }
 
-/* Custom Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -46,12 +45,10 @@
     animation: float 3s ease-in-out infinite;
 }
 
-/* Smooth scrolling */
 html {
     scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }

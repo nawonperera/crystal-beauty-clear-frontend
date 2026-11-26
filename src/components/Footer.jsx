@@ -13,7 +13,6 @@ const Footer = () => {
     return (
         <footer className="bg-black text-white py-12 px-4 sm:px-6 lg:px-8 h-screen/2">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-12 h-full">
-                {/* Contact Details */}
                 <div className="flex-1 w-full lg:w-auto">
                     <h3 className="text-lg font-bold mb-6 relative pb-2 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-12 after:bg-[#1B9C85]">
                         CONTACT DETAILS
@@ -34,14 +33,12 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* Logo */}
                 <div className="flex-1 flex items-center justify-center my-8 lg:my-0">
                     <div className="p-2">
-                        <img src="public\Footer-logo.png" alt="Company Logo" className="h-4\0 w-40 object-contain" />
+                        <img src="/Footer-logo.png" alt="Company Logo" className="h-40 w-40 object-contain" />
                     </div>
                 </div>
 
-                {/* Quick Links */}
                 <div className="flex-1 w-full lg:w-auto">
                     <h3 className="text-lg font-bold mb-6 relative pb-2 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-12 after:bg-[#1B9C85]">
                         QUICK LINKS
@@ -78,14 +75,12 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Bottom Bar */}
             <div className="max-w-7xl mx-auto border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p className="text-sm text-gray-400 text-center md:text-left flex items-center justify-center md:justify-start">
                     Copyright © 2025 Cosmetics Store | Made with <FaHeart className="text-red-500 mx-1" /> by Cosmetics
                     Store
                 </p>
 
-                {/* Social Icons */}
                 <div className="flex gap-3 mt-4 md:mt-0">
                     {[
                         { icon: <FaYoutube />, color: "hover:text-red-500" },

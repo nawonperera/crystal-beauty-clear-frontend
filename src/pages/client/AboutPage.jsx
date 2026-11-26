@@ -17,7 +17,7 @@ const AboutPage = () => {
                     <div className="absolute bottom-32 left-20 w-5 h-5 bg-teal-300 rounded-full opacity-40 animate-bounce"></div>
                 </div>
 
-                <Header headerImage="public\footer-logo.png" navBarColor="text-white" />
+                <Header headerImage="/Footer-logo.png" navBarColor="text-white" />
 
                 <div className="flex-1 flex items-center justify-center text-center px-4 relative z-10">
                     <div className="max-w-4xl">

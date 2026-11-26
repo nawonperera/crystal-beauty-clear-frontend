@@ -77,14 +77,11 @@ const ForgetPassword = () => {
 
     return (
         <div className="min-h-screen bg-[#EDF6EE]">
-            {/* Header */}
             <div className="fixed top-0 left-0 right-0 z-50">
                 <Header navBarColor="text-gray-800" headerImage="/Logo.png" />
             </div>
 
-            {/* Main Content */}
             <div className="min-h-screen flex pt-[20vh]">
-                {/* Left Side - Image */}
                 <div className="hidden lg:flex lg:w-1/2 relative">
                     <div 
                         className="fixed top-0 left-0 w-1/2 h-full bg-cover bg-center"
@@ -93,7 +90,6 @@ const ForgetPassword = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-[#1B9C85]/80 to-transparent"></div>
                     </div>
                     
-                    {/* Welcome Text */}
                     <div className="fixed top-0 left-0 w-1/2 h-full z-10 flex flex-col justify-center px-16 text-white">
                         <h1 className="text-5xl font-bold mb-6 leading-tight">
                             {emailSent ? "Almost There!" : "Forgot Your"}<br />
@@ -112,15 +108,12 @@ const ForgetPassword = () => {
                     </div>
                 </div>
 
-                {/* Right Side - Form */}
                 <div className="w-full lg:w-1/2 lg:ml-auto flex items-start justify-center px-6 py-12">
                     <div ref={formRef} className="w-full max-w-md">
-                        {/* Mobile Logo */}
                         <div className="lg:hidden text-center mb-8">
                             <img src="/Logo.png" alt="Cristal" className="h-16 mx-auto mb-4" />
                         </div>
 
-                        {/* Form Card */}
                         <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-10">
                             {emailSent ? (
                                 <>
@@ -133,7 +126,6 @@ const ForgetPassword = () => {
                                     </div>
 
                                     <form onSubmit={changePassword} className="space-y-5">
-                                        {/* OTP Input */}
                                         <div>
                                             <label className="block text-sm font-semibold text-gray-700 mb-2">
                                                 OTP Code
@@ -150,7 +142,6 @@ const ForgetPassword = () => {
                                             </div>
                                         </div>
 
-                                        {/* New Password Input */}
                                         <div>
                                             <label className="block text-sm font-semibold text-gray-700 mb-2">
                                                 New Password
@@ -174,7 +165,6 @@ const ForgetPassword = () => {
                                             </div>
                                         </div>
 
-                                        {/* Confirm Password Input */}
                                         <div>
                                             <label className="block text-sm font-semibold text-gray-700 mb-2">
                                                 Confirm Password
@@ -198,7 +188,6 @@ const ForgetPassword = () => {
                                             </div>
                                         </div>
 
-                                        {/* Reset Button */}
                                         <button
                                             type="submit"
                                             disabled={loading}
@@ -217,7 +206,6 @@ const ForgetPassword = () => {
                                             )}
                                         </button>
 
-                                        {/* Back Button */}
                                         <button
                                             type="button"
                                             onClick={() => setEmailSent(false)}
@@ -239,7 +227,6 @@ const ForgetPassword = () => {
                                     </div>
 
                                     <form onSubmit={sendEmail} className="space-y-5">
-                                        {/* Email Input */}
                                         <div>
                                             <label className="block text-sm font-semibold text-gray-700 mb-2">
                                                 Email Address
@@ -257,7 +244,6 @@ const ForgetPassword = () => {
                                             </div>
                                         </div>
 
-                                        {/* Send OTP Button */}
                                         <button
                                             type="submit"
                                             disabled={loading}
@@ -279,7 +265,6 @@ const ForgetPassword = () => {
                                 </>
                             )}
 
-                            {/* Back to Login Link */}
                             <p className="text-center mt-8 text-gray-600">
                                 Remember your password?{" "}
                                 <Link 
@@ -291,7 +276,6 @@ const ForgetPassword = () => {
                             </p>
                         </div>
 
-                        {/* Footer Text */}
                         <p className="text-center mt-6 text-sm text-gray-500">
                             Need help?{" "}
                             <Link to="/contact" className="text-[#1B9C85] hover:underline">Contact Support</Link>

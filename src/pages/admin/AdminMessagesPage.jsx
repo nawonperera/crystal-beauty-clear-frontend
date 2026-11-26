@@ -36,12 +36,10 @@ const AdminMessagesPage = () => {
             });
     };
 
-    // Initial load
     useEffect(() => {
         fetchMessages();
     }, []);
 
-    // Polling for real-time updates every 5 seconds
     useEffect(() => {
         const interval = setInterval(() => {
             fetchMessages();
@@ -80,12 +78,10 @@ const AdminMessagesPage = () => {
                 { headers: { Authorization: "Bearer " + token } }
             );
             
-            // Update local state immediately for real-time UI update
             setMessages(prev => prev.map(msg => 
                 msg.messageId === messageId ? { ...msg, status } : msg
             ));
             
-            // Update selected message if it's the one being updated
             setSelectedMessage(prev => 
                 prev && prev.messageId === messageId ? { ...prev, status } : prev
             );
@@ -111,7 +107,6 @@ const AdminMessagesPage = () => {
             toast.success("Message deleted");
             setShowDeleteConfirm(false);
             setSelectedMessage(null);
-            // Remove from local state
             setMessages(prev => prev.filter(msg => msg.messageId !== selectedMessage.messageId));
         } catch (error) {
             toast.error("Failed to delete message");
@@ -138,20 +133,17 @@ const AdminMessagesPage = () => {
         }
     };
 
-    // Stats
     const totalMessages = messages.length;
     const unreadMessages = messages.filter(m => m.status === "unread").length;
     const repliedMessages = messages.filter(m => m.status === "replied").length;
 
     return (
         <div className="w-full h-full p-6 bg-gray-50 overflow-auto">
-            {/* Header */}
             <div className="mb-8">
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">Messages</h1>
                 <p className="text-gray-500">View and manage customer inquiries</p>
             </div>
 
-            {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div className="flex items-center justify-between">
@@ -188,7 +180,6 @@ const AdminMessagesPage = () => {
                 </div>
             </div>
 
-            {/* Search and Filter */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
                 <div className="flex flex-col md:flex-row gap-4">
                     <div className="flex-1 relative">
@@ -222,7 +213,6 @@ const AdminMessagesPage = () => {
                 </div>
             </div>
 
-            {/* Messages List */}
             {!loaded ? (
                 <div className="flex justify-center items-center h-64">
                     <Loader />
@@ -240,13 +230,11 @@ const AdminMessagesPage = () => {
                             <div
                                 key={msg.messageId}
                                 onClick={() => {
-                                    // Set selected message with updated status if unread
                                     const updatedMsg = msg.status === "unread" 
                                         ? { ...msg, status: "read" } 
                                         : msg;
                                     setSelectedMessage(updatedMsg);
                                     
-                                    // Update in backend silently if unread
                                     if (msg.status === "unread") {
                                         updateStatus(msg.messageId, "read", true);
                                     }
@@ -294,7 +282,6 @@ const AdminMessagesPage = () => {
                         ))}
                     </div>
                     
-                    {/* Footer */}
                     <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
                         <p className="text-sm text-gray-500">
                             Showing <span className="font-medium text-gray-700">{filteredMessages.length}</span> of <span className="font-medium text-gray-700">{totalMessages}</span> messages
@@ -303,11 +290,9 @@ const AdminMessagesPage = () => {
                 </div>
             )}
 
-            {/* Message Detail Modal */}
             {selectedMessage && (
                 <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
-                        {/* Modal Header */}
                         <div className="p-6 border-b border-gray-100 bg-gradient-to-r from-[#1B9C85] to-emerald-500">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-4">
@@ -328,9 +313,7 @@ const AdminMessagesPage = () => {
                             </div>
                         </div>
 
-                        {/* Modal Content */}
                         <div className="p-6 overflow-y-auto max-h-[50vh]">
-                            {/* Contact Info */}
                             <div className="grid grid-cols-2 gap-4 mb-6">
                                 <div className="bg-gray-50 rounded-xl p-4">
                                     <div className="flex items-center gap-2 text-gray-500 text-sm mb-1">
@@ -359,7 +342,6 @@ const AdminMessagesPage = () => {
                                 )}
                             </div>
 
-                            {/* Message */}
                             <div className="bg-gray-50 rounded-xl p-6">
                                 <h3 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                                     <FiMessageCircle className="w-5 h-5 text-[#1B9C85]" />
@@ -370,7 +352,6 @@ const AdminMessagesPage = () => {
                                 </p>
                             </div>
 
-                            {/* Status Update */}
                             <div className="mt-6">
                                 <h3 className="font-semibold text-gray-900 mb-3">Update Status</h3>
                                 <div className="flex gap-2">
@@ -394,7 +375,6 @@ const AdminMessagesPage = () => {
                             </div>
                         </div>
 
-                        {/* Modal Footer */}
                         <div className="p-6 border-t border-gray-100 bg-gray-50 flex justify-between">
                             <button
                                 onClick={() => setShowDeleteConfirm(true)}
@@ -419,11 +399,9 @@ const AdminMessagesPage = () => {
                 </div>
             )}
 
-            {/* Reply Modal */}
             {showReplyModal && selectedMessage && (
                 <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
                     <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
-                        {/* Reply Modal Header */}
                         <div className="p-6 border-b border-gray-100 bg-gradient-to-r from-[#1B9C85] to-emerald-500">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3">
@@ -447,15 +425,12 @@ const AdminMessagesPage = () => {
                             </div>
                         </div>
 
-                        {/* Reply Form */}
                         <div className="p-6 overflow-y-auto max-h-[60vh]">
-                            {/* Original Message Preview */}
                             <div className="bg-gray-50 rounded-xl p-4 mb-6">
                                 <p className="text-sm text-gray-500 mb-2">Original message from {selectedMessage.firstName}:</p>
                                 <p className="text-gray-700 text-sm italic">"{selectedMessage.message}"</p>
                             </div>
 
-                            {/* Subject */}
                             <div className="mb-4">
                                 <label className="block text-sm font-semibold text-gray-700 mb-2">
                                     Subject
@@ -469,7 +444,6 @@ const AdminMessagesPage = () => {
                                 />
                             </div>
 
-                            {/* Reply Message */}
                             <div>
                                 <label className="block text-sm font-semibold text-gray-700 mb-2">
                                     Your Reply
@@ -484,7 +458,6 @@ const AdminMessagesPage = () => {
                             </div>
                         </div>
 
-                        {/* Reply Modal Footer */}
                         <div className="p-6 border-t border-gray-100 bg-gray-50 flex justify-between">
                             <button
                                 onClick={() => setShowReplyModal(false)}
@@ -509,7 +482,6 @@ const AdminMessagesPage = () => {
                                         );
                                         toast.success("Reply sent successfully!");
                                         
-                                        // Update local state
                                         setMessages(prev => prev.map(msg => 
                                             msg.messageId === selectedMessage.messageId ? { ...msg, status: "replied" } : msg
                                         ));
@@ -546,7 +518,6 @@ const AdminMessagesPage = () => {
                 </div>
             )}
 
-            {/* Delete Confirmation Modal */}
             {showDeleteConfirm && selectedMessage && (
                 <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[70] flex items-center justify-center p-4">
                     <div className="bg-white rounded-2xl max-w-md w-full shadow-2xl overflow-hidden">

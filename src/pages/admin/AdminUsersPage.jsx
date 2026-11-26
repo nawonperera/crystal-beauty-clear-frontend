@@ -20,12 +20,10 @@ const AdminUsersPage = () => {
         });
     };
 
-    // Initial load
     useEffect(() => {
         fetchUsers();
     }, []);
 
-    // Polling for real-time updates every 5 seconds
     useEffect(() => {
         const interval = setInterval(() => {
             fetchUsers();
@@ -37,7 +35,6 @@ const AdminUsersPage = () => {
     useEffect(() => {
         let result = users;
         
-        // Filter by search term
         if (searchTerm) {
             result = result.filter(user => 
                 user.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -46,7 +43,6 @@ const AdminUsersPage = () => {
             );
         }
         
-        // Filter by status
         if (filterStatus === "active") {
             result = result.filter(user => !user.isDisabled);
         } else if (filterStatus === "blocked") {
@@ -102,20 +98,17 @@ const AdminUsersPage = () => {
         }
     }
 
-    // Stats
     const totalUsers = users.length;
     const activeUsers = users.filter(u => !u.isDisabled).length;
     const blockedUsers = users.filter(u => u.isDisabled).length;
 
     return (
         <div className="w-full h-full p-6 bg-gray-50 overflow-auto">
-            {/* Header */}
             <div className="mb-8">
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">User Management</h1>
                 <p className="text-gray-500">Manage and monitor all registered users</p>
             </div>
 
-            {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div className="flex items-center justify-between">
@@ -152,10 +145,8 @@ const AdminUsersPage = () => {
                 </div>
             </div>
 
-            {/* Search and Filter */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
                 <div className="flex flex-col md:flex-row gap-4">
-                    {/* Search */}
                     <div className="flex-1 relative">
                         <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                         <input
@@ -166,7 +157,6 @@ const AdminUsersPage = () => {
                             className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#1B9C85] focus:bg-white transition-all"
                         />
                     </div>
-                    {/* Filter */}
                     <div className="flex gap-2">
                         <button
                             onClick={() => setFilterStatus("all")}
@@ -202,7 +192,6 @@ const AdminUsersPage = () => {
                 </div>
             </div>
 
-            {/* Users Table */}
             {!loaded ? (
                 <div className="flex justify-center items-center h-64">
                     <Loader />
@@ -232,7 +221,6 @@ const AdminUsersPage = () => {
                                         key={index}
                                         className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors"
                                     >
-                                        {/* User Info */}
                                         <td className="px-6 py-4">
                                             <div className="flex items-center gap-4">
                                                 <div className="w-12 h-12 bg-gradient-to-br from-[#1B9C85] to-emerald-400 rounded-full flex items-center justify-center text-white font-bold text-lg">
@@ -247,7 +235,6 @@ const AdminUsersPage = () => {
                                                 </div>
                                             </div>
                                         </td>
-                                        {/* Contact */}
                                         <td className="px-6 py-4">
                                             <div className="space-y-1">
                                                 <p className="text-sm text-gray-700 flex items-center gap-2">
@@ -260,7 +247,6 @@ const AdminUsersPage = () => {
                                                 </p>
                                             </div>
                                         </td>
-                                        {/* Status */}
                                         <td className="px-6 py-4 text-center">
                                             <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${
                                                 user.isDisabled
@@ -271,7 +257,6 @@ const AdminUsersPage = () => {
                                                 {user.isDisabled ? "Blocked" : "Active"}
                                             </span>
                                         </td>
-                                        {/* Verified */}
                                         <td className="px-6 py-4 text-center">
                                             {user.isEmailVerified ? (
                                                 <span className="inline-flex items-center gap-1 text-green-600">
@@ -285,7 +270,6 @@ const AdminUsersPage = () => {
                                                 </span>
                                             )}
                                         </td>
-                                        {/* Actions */}
                                         <td className="px-6 py-4">
                                             <div className="flex items-center justify-center gap-2">
                                                 {user.isDisabled ? (
@@ -323,7 +307,6 @@ const AdminUsersPage = () => {
                         </table>
                     </div>
                     
-                    {/* Table Footer */}
                     <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
                         <p className="text-sm text-gray-500">
                             Showing <span className="font-medium text-gray-700">{filteredUsers.length}</span> of <span className="font-medium text-gray-700">{totalUsers}</span> users

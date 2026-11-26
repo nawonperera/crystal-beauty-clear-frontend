@@ -33,7 +33,6 @@ const ProductOverview = () => {
                 .then((res) => {
                     setProduct(res.data.product);
                     setStatus("loaded");
-                    // Check wishlist status
                     checkWishlistStatus(res.data.product.productID);
                 })
                 .catch(() => {
@@ -43,7 +42,6 @@ const ProductOverview = () => {
         }
     }, [status, params.id]);
 
-    // Scroll to product section when loaded
     useEffect(() => {
         if (status === "loaded" && productSectionRef.current) {
             setTimeout(() => {
@@ -105,7 +103,6 @@ const ProductOverview = () => {
             
             <div className="w-full py-8 px-4">
                 <div className="max-w-7xl mx-auto">
-                    {/* Breadcrumb */}
                     <nav className="mb-8">
                         <ol className="flex items-center gap-2 text-sm text-gray-500">
                             <li><Link to="/" className="hover:text-[#1B9C85] transition-colors">Home</Link></li>
@@ -138,9 +135,7 @@ const ProductOverview = () => {
                     {status === "loaded" && (
                         <div ref={productSectionRef} className="bg-white rounded-3xl shadow-lg overflow-hidden">
                             <div className="flex flex-col lg:flex-row">
-                                {/* Image Gallery */}
                                 <div className="w-full lg:w-1/2 p-6 lg:p-10">
-                                    {/* Main Image */}
                                     <div className="relative rounded-2xl overflow-hidden bg-gray-100 mb-4">
                                         <div className="relative aspect-square">
                                             <div
@@ -159,14 +154,12 @@ const ProductOverview = () => {
                                             </div>
                                         </div>
 
-                                        {/* Discount Badge */}
                                         {discount > 0 && (
                                             <span className="absolute top-4 left-4 bg-gradient-to-r from-red-500 to-pink-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
                                                 -{discount}% OFF
                                             </span>
                                         )}
 
-                                        {/* Navigation Arrows */}
                                         {product.images.length > 1 && (
                                             <>
                                                 <button
@@ -185,7 +178,6 @@ const ProductOverview = () => {
                                         )}
                                     </div>
 
-                                    {/* Thumbnail Gallery */}
                                     {product.images.length > 1 && (
                                         <div className="flex gap-3 justify-center">
                                             {product.images.map((img, index) => (
@@ -205,26 +197,21 @@ const ProductOverview = () => {
                                     )}
                                 </div>
 
-                                {/* Product Details */}
                                 <div className="w-full lg:w-1/2 p-6 lg:p-10 lg:border-l border-gray-100">
-                                    {/* Product ID */}
                                     <span className="inline-block px-3 py-1 bg-[#1B9C85]/10 text-[#1B9C85] text-sm font-semibold rounded-full mb-4">
                                         #{product.productID}
                                     </span>
 
-                                    {/* Title */}
                                     <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
                                         {product.name}
                                     </h1>
                                     
-                                    {/* Alt Names */}
                                     {product.altNames?.length > 0 && (
                                         <p className="text-lg text-gray-500 mb-4">
                                             {product.altNames.join(" • ")}
                                         </p>
                                     )}
 
-                                    {/* Rating */}
                                     <div className="flex items-center gap-3 mb-6">
                                         <div className="flex items-center gap-1">
                                             {[1, 2, 3, 4, 5].map((star) => (
@@ -234,7 +221,6 @@ const ProductOverview = () => {
                                         <span className="text-gray-500">(128 reviews)</span>
                                     </div>
 
-                                    {/* Price */}
                                     <div className="flex items-baseline gap-4 mb-6">
                                         <span className="text-4xl font-bold text-[#1B9C85]">
                                             LKR {product.price.toFixed(2)}
@@ -251,12 +237,10 @@ const ProductOverview = () => {
                                         )}
                                     </div>
 
-                                    {/* Description */}
                                     <p className="text-gray-600 leading-relaxed mb-8">
                                         {product.description}
                                     </p>
 
-                                    {/* Quantity Selector */}
                                     <div className="mb-8">
                                         <label className="block text-sm font-semibold text-gray-700 mb-3">Quantity</label>
                                         <div className="flex items-center gap-4">
@@ -282,7 +266,6 @@ const ProductOverview = () => {
                                         </div>
                                     </div>
 
-                                    {/* Action Buttons */}
                                     <div className="flex flex-col sm:flex-row gap-4 mb-8">
                                         <button
                                             onClick={() => {
@@ -316,7 +299,6 @@ const ProductOverview = () => {
                                         </button>
                                     </div>
 
-                                    {/* Wishlist & Share */}
                                     <div className="flex items-center gap-4 mb-8 pb-8 border-b border-gray-100">
                                         <button 
                                             onClick={handleWishlistClick}
@@ -332,7 +314,6 @@ const ProductOverview = () => {
                                         </button>
                                     </div>
 
-                                    {/* Features */}
                                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                         <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl">
                                             <FiTruck className="w-6 h-6 text-[#1B9C85]" />

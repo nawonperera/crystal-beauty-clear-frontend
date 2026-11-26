@@ -12,7 +12,6 @@ const Header = ({ navBarColor, headerImage }) => {
     const [user, setUser] = useState(null);
     const location = useLocation();
 
-    // Check if current path matches the link
     const isActive = (path) => {
         if (path === "/") {
             return location.pathname === "/";
@@ -20,12 +19,10 @@ const Header = ({ navBarColor, headerImage }) => {
         return location.pathname.startsWith(path);
     };
 
-    // Get initial cart count
     useEffect(() => {
         setCartCount(getCartItemCount());
     }, []);
 
-    // Fetch user data to check role
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
@@ -42,7 +39,6 @@ const Header = ({ navBarColor, headerImage }) => {
         }
     }, []);
 
-    // Listen for cart updates
     useEffect(() => {
         const handleCartUpdate = (event) => {
             const cart = event.detail;
@@ -60,11 +56,10 @@ const Header = ({ navBarColor, headerImage }) => {
     return (
         <header className="w-full h-[20vh] relative flex items-center justify-start ">
             <div className="p-2">
-                <img src={headerImage} alt="Company Logo" className="h-4\0 w-40 object-contain" />
+                <img src={headerImage} alt="Company Logo" className="h-40 w-40 object-contain" />
             </div>
 
             <div className="flex items-center justify-between w-full px-4 py-2 lg:hidden">
-                {/* Left: Hamburger menu */}
                 <GiHamburgerMenu
                     className="text-3xl text-accent cursor-pointer hover:rotate-90 transition-transform duration-300"
                     onClick={() => setIsOpen(true)}
@@ -97,9 +92,7 @@ const Header = ({ navBarColor, headerImage }) => {
 
             {isOpen && (
                 <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] lg:hidden ">
-                    {/* Slide-in Sidebar */}
                     <div className="w-[280px] h-full bg-white shadow-2xl flex flex-col p-6 animate-slideIn">
-                        {/* Close Button */}
                         <div className="w-full flex justify-end mb-6">
                             <GiHamburgerMenu
                                 className="text-3xl text-accent cursor-pointer hover:rotate-90 transition-transform duration-300"
@@ -107,7 +100,6 @@ const Header = ({ navBarColor, headerImage }) => {
                             />
                         </div>
 
-                        {/* Navigation Links */}
                         <nav className="flex flex-col gap-4 w-full">
                             <Link
                                 to="/"

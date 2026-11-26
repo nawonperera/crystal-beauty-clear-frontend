@@ -22,7 +22,6 @@ const AddProductForm = () => {
         const files = e.target.files;
         setImages(files);
         
-        // Create preview URLs
         const previews = [];
         for (let i = 0; i < files.length; i++) {
             previews.push(URL.createObjectURL(files[i]));
@@ -83,7 +82,6 @@ const AddProductForm = () => {
 
     return (
         <div className="w-full h-full p-6 bg-gray-50 overflow-auto">
-            {/* Header */}
             <div className="mb-8">
                 <Link 
                     to="/admin/products" 
@@ -97,9 +95,7 @@ const AddProductForm = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {/* Main Form */}
                 <div className="lg:col-span-2 space-y-6">
-                    {/* Basic Information */}
                     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                         <h2 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
                             <FiPackage className="w-5 h-5 text-[#1B9C85]" />
@@ -107,7 +103,6 @@ const AddProductForm = () => {
                         </h2>
                         
                         <div className="space-y-5">
-                            {/* Product ID */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
                                     <FiHash className="inline w-4 h-4 mr-1" />
@@ -122,7 +117,6 @@ const AddProductForm = () => {
                                 <p className="text-xs text-gray-500 mt-1">Unique identifier for this product</p>
                             </div>
 
-                            {/* Product Name */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
                                     <FiTag className="inline w-4 h-4 mr-1" />
@@ -136,7 +130,6 @@ const AddProductForm = () => {
                                 />
                             </div>
 
-                            {/* Alternative Names */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">Alternative Names</label>
                                 <input
@@ -148,7 +141,6 @@ const AddProductForm = () => {
                                 <p className="text-xs text-gray-500 mt-1">Separate multiple names with commas</p>
                             </div>
 
-                            {/* Description */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
                                     <FiFileText className="inline w-4 h-4 mr-1" />
@@ -165,7 +157,6 @@ const AddProductForm = () => {
                         </div>
                     </div>
 
-                    {/* Pricing */}
                     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                         <h2 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
                             <FiDollarSign className="w-5 h-5 text-[#1B9C85]" />
@@ -173,7 +164,6 @@ const AddProductForm = () => {
                         </h2>
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                            {/* Price */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
                                     Selling Price <span className="text-red-500">*</span>
@@ -190,7 +180,6 @@ const AddProductForm = () => {
                                 </div>
                             </div>
 
-                            {/* Labeled Price */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
                                     Original Price <span className="text-red-500">*</span>
@@ -207,7 +196,6 @@ const AddProductForm = () => {
                                 </div>
                             </div>
 
-                            {/* Stock */}
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
                                     <FiBox className="inline w-4 h-4 mr-1" />
@@ -233,7 +221,6 @@ const AddProductForm = () => {
                         )}
                     </div>
 
-                    {/* Images */}
                     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
                         <h2 className="text-lg font-semibold text-gray-900 mb-6 flex items-center gap-2">
                             <FiImage className="w-5 h-5 text-[#1B9C85]" />
@@ -256,7 +243,6 @@ const AddProductForm = () => {
                             </label>
                         </div>
 
-                        {/* Image Preview */}
                         {imagePreview.length > 0 && (
                             <div className="mt-6">
                                 <p className="text-sm font-medium text-gray-700 mb-3">Selected Images ({imagePreview.length})</p>
@@ -275,9 +261,7 @@ const AddProductForm = () => {
                     </div>
                 </div>
 
-                {/* Sidebar - Preview & Actions */}
                 <div className="space-y-6">
-                    {/* Preview Card */}
                     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-6">
                         <h2 className="text-lg font-semibold text-gray-900 mb-4">Preview</h2>
                         
@@ -309,7 +293,6 @@ const AddProductForm = () => {
                             <p className="text-sm text-gray-500">{stock || 0} units in stock</p>
                         </div>
 
-                        {/* Action Buttons */}
                         <div className="space-y-3">
                             <button
                                 onClick={handleSubmit}
@@ -337,7 +320,6 @@ const AddProductForm = () => {
                             </Link>
                         </div>
 
-                        {/* Required Fields Note */}
                         <p className="text-xs text-gray-500 mt-4 text-center">
                             <span className="text-red-500">*</span> Required fields
                         </p>

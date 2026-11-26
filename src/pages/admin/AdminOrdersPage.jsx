@@ -26,12 +26,10 @@ const AdminOrdersPage = () => {
             });
     };
 
-    // Initial load
     useEffect(() => {
         fetchOrders();
     }, []);
 
-    // Polling for real-time updates every 5 seconds
     useEffect(() => {
         const interval = setInterval(() => {
             fetchOrders();
@@ -100,7 +98,6 @@ const AdminOrdersPage = () => {
         }
     };
 
-    // Stats
     const totalOrders = orders.length;
     const pendingOrders = orders.filter(o => o.status === "Pending").length;
     const processingOrders = orders.filter(o => o.status === "Processing").length;
@@ -109,13 +106,11 @@ const AdminOrdersPage = () => {
 
     return (
         <div className="w-full h-full p-6 bg-gray-50 overflow-auto">
-            {/* Header */}
             <div className="mb-8">
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">Orders</h1>
                 <p className="text-gray-500">Manage and track customer orders</p>
             </div>
 
-            {/* Stats Cards */}
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
                 <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
                     <div className="flex items-center justify-between">
@@ -174,7 +169,6 @@ const AdminOrdersPage = () => {
                 </div>
             </div>
 
-            {/* Search and Filter */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
                 <div className="flex flex-col md:flex-row gap-4">
                     <div className="flex-1 relative">
@@ -209,7 +203,6 @@ const AdminOrdersPage = () => {
                 </div>
             </div>
 
-            {/* Orders Table */}
             {!loaded ? (
                 <div className="flex justify-center items-center h-64">
                     <Loader />
@@ -237,7 +230,6 @@ const AdminOrdersPage = () => {
                             <tbody>
                                 {filteredOrders.map((order) => (
                                     <tr key={order.orderId} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
-                                        {/* Order Info */}
                                         <td className="px-6 py-4">
                                             <div>
                                                 <p className="font-semibold text-gray-900">#{order.orderId}</p>
@@ -251,7 +243,6 @@ const AdminOrdersPage = () => {
                                                 </p>
                                             </div>
                                         </td>
-                                        {/* Customer */}
                                         <td className="px-6 py-4">
                                             <div>
                                                 <p className="font-medium text-gray-900">{order.name}</p>
@@ -265,14 +256,12 @@ const AdminOrdersPage = () => {
                                                 </p>
                                             </div>
                                         </td>
-                                        {/* Address */}
                                         <td className="px-6 py-4">
                                             <p className="text-sm text-gray-600 flex items-start gap-1 max-w-[200px]">
                                                 <FiMapPin className="w-3 h-3 mt-1 flex-shrink-0" />
                                                 <span className="line-clamp-2">{order.address}</span>
                                             </p>
                                         </td>
-                                        {/* Status */}
                                         <td className="px-6 py-4">
                                             <div className="flex justify-center">
                                                 <select
@@ -288,12 +277,10 @@ const AdminOrdersPage = () => {
                                                 </select>
                                             </div>
                                         </td>
-                                        {/* Total */}
                                         <td className="px-6 py-4 text-right">
                                             <p className="font-bold text-gray-900">LKR {order.total.toFixed(2)}</p>
                                             <p className="text-xs text-gray-500">{order.billItems?.length || 0} items</p>
                                         </td>
-                                        {/* Actions */}
                                         <td className="px-6 py-4">
                                             <div className="flex justify-center">
                                                 <button
@@ -314,7 +301,6 @@ const AdminOrdersPage = () => {
                         </table>
                     </div>
                     
-                    {/* Table Footer */}
                     <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
                         <p className="text-sm text-gray-500">
                             Showing <span className="font-medium text-gray-700">{filteredOrders.length}</span> of <span className="font-medium text-gray-700">{totalOrders}</span> orders
@@ -323,11 +309,9 @@ const AdminOrdersPage = () => {
                 </div>
             )}
 
-            {/* Order Details Modal */}
             {modelIsDisplaying && displayingOrder && (
                 <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
-                        {/* Modal Header */}
                         <div className="p-6 border-b border-gray-100 bg-gradient-to-r from-[#1B9C85] to-emerald-500">
                             <div className="flex items-center justify-between">
                                 <div className="text-white">
@@ -350,9 +334,7 @@ const AdminOrdersPage = () => {
                             </div>
                         </div>
 
-                        {/* Modal Content */}
                         <div className="p-6 overflow-y-auto max-h-[60vh]">
-                            {/* Order Summary */}
                             <div className="grid grid-cols-2 gap-4 mb-6">
                                 <div className="bg-gray-50 rounded-xl p-4">
                                     <p className="text-sm text-gray-500 mb-1">Status</p>
@@ -367,7 +349,6 @@ const AdminOrdersPage = () => {
                                 </div>
                             </div>
 
-                            {/* Customer Info */}
                             <div className="bg-gray-50 rounded-xl p-4 mb-6">
                                 <h3 className="font-semibold text-gray-900 mb-3">Customer Information</h3>
                                 <div className="space-y-2 text-sm">
@@ -389,7 +370,6 @@ const AdminOrdersPage = () => {
                                 </div>
                             </div>
 
-                            {/* Order Items */}
                             <div>
                                 <h3 className="font-semibold text-gray-900 mb-3">Order Items ({displayingOrder.billItems?.length || 0})</h3>
                                 <div className="space-y-3">
@@ -419,7 +399,6 @@ const AdminOrdersPage = () => {
                             </div>
                         </div>
 
-                        {/* Modal Footer */}
                         <div className="p-6 border-t border-gray-100 bg-gray-50">
                             <div className="flex items-center justify-between">
                                 <div>

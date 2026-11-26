@@ -1,7 +1,5 @@
-// Custom event for cart updates
 export const CART_UPDATED_EVENT = "cartUpdated";
 
-// Dispatch cart update event
 const dispatchCartUpdate = (cart) => {
     window.dispatchEvent(new CustomEvent(CART_UPDATED_EVENT, { detail: cart }));
 };
@@ -27,7 +25,6 @@ export function getCartItemCount() {
 export function addToCart(product, qty) {
     let cart = getCart();
 
-    // Support both productId and productID
     const prodId = product.productId || product.productID;
     
     const productIndex = cart.findIndex(
@@ -38,10 +35,10 @@ export function addToCart(product, qty) {
         cart.push({
             productId: prodId,
             name: product.name,
-            altNames: product.altNames,
+            altNames: product.altNames || [],
             price: product.price,
             labeledPrice: product.labeledPrice,
-            image: product.images[0],
+            image: product.images?.[0] || "",
             quantity: qty,
         });
     } else {

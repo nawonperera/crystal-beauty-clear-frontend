@@ -21,12 +21,10 @@ const AdminProductsPage = () => {
         });
     };
 
-    // Initial load
     useEffect(() => {
         fetchProducts();
     }, []);
 
-    // Polling for real-time updates every 5 seconds
     useEffect(() => {
         const interval = setInterval(() => {
             fetchProducts();
@@ -69,14 +67,12 @@ const AdminProductsPage = () => {
         }
     }
 
-    // Stats
     const totalProducts = products.length;
     const totalValue = products.reduce((sum, p) => sum + (p.price * (p.stock || 0)), 0);
     const lowStock = products.filter(p => (p.stock || 0) <= 5).length;
 
     return (
         <div className="w-full h-full p-6 bg-gray-50 overflow-auto">
-            {/* Delete Confirmation Modal */}
             {showDeleteModal && (
                 <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div className="bg-white rounded-2xl p-6 max-w-md w-full shadow-2xl">
@@ -113,7 +109,6 @@ const AdminProductsPage = () => {
                 </div>
             )}
 
-            {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
                 <div>
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">Products</h1>
@@ -128,7 +123,6 @@ const AdminProductsPage = () => {
                 </Link>
             </div>
 
-            {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div className="flex items-center justify-between">
@@ -165,7 +159,6 @@ const AdminProductsPage = () => {
                 </div>
             </div>
 
-            {/* Search */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
                 <div className="relative">
                     <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -179,7 +172,6 @@ const AdminProductsPage = () => {
                 </div>
             </div>
 
-            {/* Products Table */}
             {!loaded ? (
                 <div className="flex justify-center items-center h-64">
                     <Loader />
@@ -222,7 +214,6 @@ const AdminProductsPage = () => {
                                             key={index}
                                             className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors"
                                         >
-                                            {/* Product Info */}
                                             <td className="px-6 py-4">
                                                 <div className="flex items-center gap-4">
                                                     <div className="w-16 h-16 bg-gray-100 rounded-xl overflow-hidden flex-shrink-0">
@@ -244,7 +235,6 @@ const AdminProductsPage = () => {
                                                     </div>
                                                 </div>
                                             </td>
-                                            {/* Price */}
                                             <td className="px-6 py-4 text-center">
                                                 <div className="flex flex-col items-center">
                                                     <span className="font-bold text-gray-900">LKR {product.price?.toFixed(2)}</span>
@@ -255,13 +245,11 @@ const AdminProductsPage = () => {
                                                     )}
                                                 </div>
                                             </td>
-                                            {/* Labeled Price */}
                                             <td className="px-6 py-4 text-center">
                                                 <span className={`font-medium ${discount > 0 ? 'text-gray-400 line-through' : 'text-gray-700'}`}>
                                                     LKR {product.labeledPrice?.toFixed(2)}
                                                 </span>
                                             </td>
-                                            {/* Stock */}
                                             <td className="px-6 py-4 text-center">
                                                 <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${
                                                     isLowStock
@@ -272,7 +260,6 @@ const AdminProductsPage = () => {
                                                     {product.stock || 0} units
                                                 </span>
                                             </td>
-                                            {/* Actions */}
                                             <td className="px-6 py-4">
                                                 <div className="flex items-center justify-center gap-2">
                                                     <button
@@ -298,7 +285,6 @@ const AdminProductsPage = () => {
                         </table>
                     </div>
                     
-                    {/* Table Footer */}
                     <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
                         <p className="text-sm text-gray-500">
                             Showing <span className="font-medium text-gray-700">{filteredProducts.length}</span> of <span className="font-medium text-gray-700">{totalProducts}</span> products

@@ -123,7 +123,6 @@ const Cart = () => {
             <Header navBarColor="text-black" headerImage="/Logo.png" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                {/* Back Button */}
                 <button
                     onClick={() => navigate(-1)}
                     className="flex items-center gap-2 text-[#1B9C85] hover:text-[#158a74] mb-6 transition-colors font-medium"
@@ -132,7 +131,6 @@ const Cart = () => {
                     <span>Back to Shopping</span>
                 </button>
 
-                {/* Page Title */}
                 <div className="flex items-center gap-3 mb-8">
                     <div className="w-12 h-12 bg-[#1B9C85]/10 rounded-full flex items-center justify-center">
                         <FiShoppingBag className="text-2xl text-[#1B9C85]" />
@@ -144,7 +142,6 @@ const Cart = () => {
                 </div>
 
                 <div className="grid lg:grid-cols-3 gap-8">
-                    {/* Cart Items */}
                     <div className="lg:col-span-2">
                         <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
                             <div className="p-6 border-b border-gray-100">
@@ -155,7 +152,6 @@ const Cart = () => {
                                 {cart.map((item, index) => (
                                     <div key={index} className="p-6 hover:bg-gray-50/50 transition-colors">
                                         <div className="flex flex-col sm:flex-row gap-4">
-                                            {/* Product Image */}
                                             <div className="relative w-full sm:w-28 h-28 flex-shrink-0">
                                                 <img
                                                     alt={item.name}
@@ -170,7 +166,6 @@ const Cart = () => {
                                                 </button>
                                             </div>
 
-                                            {/* Product Info */}
                                             <div className="flex-1 min-w-0">
                                                 <h3 className="font-bold text-gray-900 text-lg mb-1">{item.name}</h3>
                                                 {item.altNames?.length > 0 && (
@@ -189,7 +184,6 @@ const Cart = () => {
                                                 </div>
 
                                                 <div className="flex items-center justify-between">
-                                                    {/* Quantity Controls */}
                                                     <div className="flex items-center gap-2 bg-gray-100 rounded-full p-1">
                                                         <button
                                                             className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm hover:bg-[#1B9C85] hover:text-white transition-all disabled:opacity-50"
@@ -207,7 +201,6 @@ const Cart = () => {
                                                         </button>
                                                     </div>
 
-                                                    {/* Item Total */}
                                                     <span className="text-xl font-bold text-gray-900">
                                                         LKR {(item.price * item.quantity).toFixed(2)}
                                                     </span>
@@ -220,9 +213,7 @@ const Cart = () => {
                         </div>
                     </div>
 
-                    {/* Sidebar */}
                     <div className="space-y-6">
-                        {/* Customer Information */}
                         <div className="bg-white rounded-3xl shadow-lg p-6">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-10 h-10 bg-[#1B9C85]/10 rounded-full flex items-center justify-center">
@@ -232,7 +223,6 @@ const Cart = () => {
                             </div>
 
                             <div className="space-y-5">
-                                {/* Name Field */}
                                 <div>
                                     <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
                                         <FiUser className="text-[#1B9C85]" />
@@ -252,7 +242,6 @@ const Cart = () => {
                                     {formErrors.name && <p className="mt-2 text-sm text-red-500">{formErrors.name}</p>}
                                 </div>
 
-                                {/* Phone Field */}
                                 <div>
                                     <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
                                         <FiPhone className="text-[#1B9C85]" />
@@ -272,7 +261,6 @@ const Cart = () => {
                                     {formErrors.phoneNumber && <p className="mt-2 text-sm text-red-500">{formErrors.phoneNumber}</p>}
                                 </div>
 
-                                {/* Address Field */}
                                 <div>
                                     <label className="flex items-center gap-2 text-sm font-semibold text-gray-700 mb-2">
                                         <FiMapPin className="text-[#1B9C85]" />
@@ -294,7 +282,6 @@ const Cart = () => {
                             </div>
                         </div>
 
-                        {/* Order Summary */}
                         <div className="bg-white rounded-3xl shadow-lg p-6">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-10 h-10 bg-[#1B9C85]/10 rounded-full flex items-center justify-center">
@@ -337,7 +324,6 @@ const Cart = () => {
                                 </div>
                             </div>
 
-                            {/* Place Order Button */}
                             <button
                                 className={`w-full py-4 rounded-2xl font-semibold text-lg transition-all duration-300 ${
                                     isLoading
@@ -360,7 +346,6 @@ const Cart = () => {
                                 )}
                             </button>
 
-                            {/* Security Notice */}
                             <div className="mt-6 flex items-center justify-center gap-2 text-sm text-gray-500">
                                 <FiShield className="w-4 h-4 text-[#1B9C85]" />
                                 <span>Secure & encrypted checkout</span>

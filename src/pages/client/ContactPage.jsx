@@ -33,7 +33,6 @@ const ContactPage = () => {
                 message,
             });
             toast.success("Message sent successfully!");
-            // Clear form
             setFirstName("");
             setLastName("");
             setEmail("");
@@ -48,9 +47,7 @@ const ContactPage = () => {
 
     return (
         <div className="min-h-screen w-full bg-[#EDF6EE] overflow-x-hidden">
-            {/* Hero Banner Section */}
             <div className="relative h-[60vh] w-full bg-gradient-to-br from-[#0d5c4f] via-[#1B9C85] to-[#2dd4bf] flex flex-col">
-                {/* Animated Background Elements */}
                 <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
                     <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-300/10 rounded-full blur-3xl animate-pulse"></div>
@@ -60,9 +57,8 @@ const ContactPage = () => {
                     <div className="absolute bottom-32 left-20 w-5 h-5 bg-teal-300 rounded-full opacity-40 animate-bounce"></div>
                 </div>
 
-                <Header headerImage="public\footer-logo.png" navBarColor="text-white" />
+                <Header headerImage="/Footer-logo.png" navBarColor="text-white" />
 
-                {/* Hero Content */}
                 <div className="flex-1 flex items-center justify-center text-center px-4 pb-24 relative z-10">
                     <div className="max-w-4xl">
                         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
@@ -86,7 +82,6 @@ const ContactPage = () => {
                 </div>
             </div>
 
-            {/* Contact Cards Section */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
                 <div className="grid md:grid-cols-4 gap-6">
                     <div className="group bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
@@ -123,11 +118,9 @@ const ContactPage = () => {
                 </div>
             </div>
 
-            {/* Main Contact Section */}
             <div className="py-20 lg:py-32">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-                        {/* Left - Contact Form */}
                         <div className="relative">
                             <div className="absolute -inset-4 bg-gradient-to-br from-[#1B9C85]/10 to-emerald-500/10 rounded-3xl blur-2xl"></div>
                             <div className="relative bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-100">
@@ -229,9 +222,7 @@ const ContactPage = () => {
                             </div>
                         </div>
 
-                        {/* Right - Contact Info & Map */}
                         <div className="space-y-8">
-                            {/* Info Card */}
                             <div className="relative">
                                 <div className="absolute -inset-4 bg-gradient-to-br from-[#1B9C85]/20 to-emerald-500/20 rounded-3xl blur-2xl"></div>
                                 <div className="relative bg-gradient-to-br from-[#1B9C85] via-emerald-600 to-teal-600 p-8 md:p-10 rounded-3xl text-white shadow-2xl overflow-hidden">
@@ -299,7 +290,6 @@ const ContactPage = () => {
                                 </div>
                             </div>
 
-                            {/* Map Card */}
                             <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold text-gray-800 mb-2">Find Us on Map</h3>
@@ -331,7 +321,6 @@ const ContactPage = () => {
                 </div>
             </div>
 
-            {/* FAQ Section */}
             <div className="py-20 bg-white">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
@@ -388,7 +377,6 @@ const ContactPage = () => {
                 </div>
             </div>
 
-            {/* CTA Section */}
             <div className="py-20 bg-gradient-to-br from-[#0d5c4f] via-[#1B9C85] to-emerald-600 relative overflow-hidden">
                 <div className="absolute inset-0">
                     <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>

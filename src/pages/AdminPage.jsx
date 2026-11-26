@@ -72,9 +72,7 @@ const AdminPage = () => {
         <div className="w-full min-h-screen h-screen bg-gray-100 flex">
             {userValidated ? (
                 <>
-                    {/* Sidebar */}
                     <div className="h-full w-[260px] bg-white border-r border-gray-200 flex flex-col">
-                        {/* Logo Section */}
                         <div className="p-6 border-b border-gray-100">
                             <Link to="/" className="flex items-center gap-3">
                                 <div className="w-10 h-10 bg-gradient-to-br from-[#1B9C85] to-emerald-400 rounded-xl flex items-center justify-center">
@@ -87,7 +85,6 @@ const AdminPage = () => {
                             </Link>
                         </div>
 
-                        {/* Navigation */}
                         <nav className="flex-1 p-4">
                             <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4 px-3">
                                 Menu
@@ -129,7 +126,6 @@ const AdminPage = () => {
                             </div>
                         </nav>
 
-                        {/* User Section */}
                         <div className="p-4 border-t border-gray-100">
                             <div className="bg-gray-50 rounded-xl p-4">
                                 <div className="flex items-center gap-3 mb-3">
@@ -154,7 +150,6 @@ const AdminPage = () => {
                         </div>
                     </div>
 
-                    {/* Main Content */}
                     <div className="flex-1 h-full overflow-hidden">
                         <Routes path="/*">
                             <Route path="/" element={<AdminDashboard />} />

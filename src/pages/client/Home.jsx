@@ -29,7 +29,6 @@ const Home = () => {
 
     return (
         <div className="w-full min-h-screen bg-[#EDF6EE]">
-            {/* Hero Section */}
             <div className="w-full h-screen relative overflow-hidden">
                 <div
                     className="absolute inset-0 bg-fixed bg-cover bg-center transition-all duration-300"
@@ -40,15 +39,13 @@ const Home = () => {
                     }}
                 ></div>
 
-                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
 
                 <div className="relative z-10 flex flex-col w-full h-full">
                     <div className="py-[10px]">
-                        <Header headerImage="public\footer-logo.png" navBarColor="text-white" />
+                        <Header headerImage="/Footer-logo.png" navBarColor="text-white" />
                     </div>
 
-                    {/* Hero Content */}
                     <div className="flex-1 flex items-center px-8 lg:px-20">
                         <div className="max-w-xl animate-fadeIn">
                             <p className="text-[#1B9C85] text-sm md:text-base font-semibold tracking-[0.3em] mb-4">
@@ -79,7 +76,6 @@ const Home = () => {
                         </div>
                     </div>
 
-                    {/* Scroll Indicator */}
                     <div
                         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer animate-bounce"
                         onClick={scrollToContent}
@@ -90,11 +86,6 @@ const Home = () => {
                 </div>
             </div>
 
-            {/**
-             * ===============================================
-             *             Trending Items View
-             * ===============================================
-             */}
             <div className="w-full min-h-screen flex justify-center pb-[100px]">
                 <div className="w-[90%] lg:w-[80%] xl:w-[75%] mx-auto">
                     <div className="w-full flex flex-col items-center mt-[80px] mb-[60px]">
@@ -126,11 +117,6 @@ const Home = () => {
                 </div>
             </div>
 
-            {/**
-             * ===============================================
-             *             Store Features
-             * ===============================================
-             */}
 
             <div className="w-full bg-white py-20">
                 <div className="w-[90%] lg:w-[80%] xl:w-[75%] mx-auto">
@@ -143,7 +129,7 @@ const Home = () => {
                                 muted
                                 playsInline
                             >
-                                <source src="public\Homepage video.mp4" type="video/mp4" />
+                                <source src="/Homepage video.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                         </div>
@@ -175,7 +161,6 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* Features Section */}
             <div className="w-full py-24 bg-[#EDF6EE]">
                 <div className="w-[90%] lg:w-[80%] xl:w-[75%] mx-auto">
                     <div className="text-center mb-16">

@@ -32,7 +32,12 @@ const CartSidePanel = () => {
 
     const handleCheckout = () => {
         setIsOpen(false);
-        navigate("/checkout", { state: { items: cart } });
+        navigate("/checkout",
+            {
+                state: {
+                    items: cart
+                }
+            });
     };
 
     const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
@@ -40,7 +45,6 @@ const CartSidePanel = () => {
 
     return (
         <>
-            {/* Cart Toggle Button */}
             <button
                 className="fixed top-5 right-5 z-50 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl group"
                 onClick={() => setIsOpen(true)}
@@ -55,18 +59,15 @@ const CartSidePanel = () => {
                 </div>
             </button>
 
-            {/* Overlay */}
             {isOpen && (
                 <div
                     className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] transition-opacity duration-300"
                     onClick={() => setIsOpen(false)}
                 >
-                    {/* Slide-in Panel */}
                     <div
                         className="fixed top-0 right-0 w-full max-w-md h-full bg-white shadow-2xl transform transition-transform duration-300 translate-x-0 flex flex-col"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Header */}
                         <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-gray-50 to-white">
                             <div className="flex items-center gap-3">
                                 <FiShoppingCart className="text-2xl text-gray-700" />
@@ -87,10 +88,8 @@ const CartSidePanel = () => {
                             </button>
                         </div>
 
-                        {/* Cart Content */}
                         <div className="flex-1 overflow-y-auto">
                             {!hasItems ? (
-                                // Empty Cart State
                                 <div className="flex flex-col items-center justify-center h-full p-8 text-center">
                                     <FiShoppingCart className="text-6xl text-gray-300 mb-4" />
                                     <h3 className="text-lg font-semibold text-gray-700 mb-2">Your cart is empty</h3>
@@ -103,7 +102,6 @@ const CartSidePanel = () => {
                                     </button>
                                 </div>
                             ) : (
-                                // Cart Items
                                 <div className="p-4 space-y-4">
                                     {cart.map((item, index) => (
                                         <div
@@ -111,7 +109,6 @@ const CartSidePanel = () => {
                                             className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden"
                                         >
                                             <div className="flex">
-                                                {/* Product Image */}
                                                 <div className="relative w-24 h-24 flex-shrink-0">
                                                     <img
                                                         alt={item.name}
@@ -126,7 +123,6 @@ const CartSidePanel = () => {
                                                     </button>
                                                 </div>
 
-                                                {/* Product Details */}
                                                 <div className="flex-1 p-4">
                                                     <h3 className="font-semibold text-gray-800 text-sm mb-1 line-clamp-2">
                                                         {item.name}
@@ -144,7 +140,6 @@ const CartSidePanel = () => {
                                                             </span>
                                                         </div>
 
-                                                        {/* Quantity Controls */}
                                                         <div className="flex items-center gap-2">
                                                             <button
                                                                 className="w-7 h-7 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full flex justify-center items-center transition-colors duration-200"
@@ -165,7 +160,6 @@ const CartSidePanel = () => {
                                                         </div>
                                                     </div>
 
-                                                    {/* Item Total */}
                                                     <div className="mt-2 text-right">
                                                         <span className="text-sm font-bold text-gray-800">
                                                             LKR {(item.price * item.quantity).toFixed(2)}
@@ -179,10 +173,8 @@ const CartSidePanel = () => {
                             )}
                         </div>
 
-                        {/* Footer with Totals and Checkout */}
                         {hasItems && (
                             <div className="border-t border-gray-200 bg-gray-50 p-6 space-y-4">
-                                {/* Totals */}
                                 <div className="space-y-2">
                                     <div className="flex justify-between text-sm text-gray-600">
                                         <span>Subtotal:</span>
@@ -200,7 +192,6 @@ const CartSidePanel = () => {
                                     </div>
                                 </div>
 
-                                {/* Checkout Button */}
                                 <button
                                     className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg transform hover:scale-[1.02] active:scale-[0.98]"
                                     onClick={handleCheckout}
@@ -217,7 +208,6 @@ const CartSidePanel = () => {
                             </div>
                         )}
 
-                        {/* Brand Footer */}
                         <div className="p-4 text-center border-t border-gray-100">
                             <p className="text-xs text-gray-400">© 2025 CRISTAL BEAUTY & CLEAR</p>
                         </div>

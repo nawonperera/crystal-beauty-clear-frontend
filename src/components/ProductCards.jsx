@@ -81,7 +81,6 @@ const ProductCards = ({ product, viewMode = "grid" }) => {
         return (
             <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
                 <div className="flex flex-col md:flex-row">
-                    {/* Image */}
                     <div className="relative w-full md:w-72 h-64 md:h-auto overflow-hidden">
                         <img 
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
@@ -106,7 +105,6 @@ const ProductCards = ({ product, viewMode = "grid" }) => {
                         </button>
                     </div>
 
-                    {/* Content */}
                     <div className="flex-1 p-6 md:p-8 flex flex-col justify-between">
                         <div>
                             <p className="text-[#1B9C85] text-sm font-medium mb-2">#{product.productID}</p>
@@ -153,7 +151,6 @@ const ProductCards = ({ product, viewMode = "grid" }) => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Image Container */}
             <div className="relative h-56 overflow-hidden bg-gray-100">
                 <img 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
@@ -161,17 +158,14 @@ const ProductCards = ({ product, viewMode = "grid" }) => {
                     alt={product.name} 
                 />
                 
-                {/* Overlay on hover */}
                 <div className={`absolute inset-0 bg-black/20 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}></div>
 
-                {/* Discount Badge */}
                 {discount && (
                     <span className="absolute top-4 left-4 bg-gradient-to-r from-red-500 to-pink-500 text-white text-sm font-bold px-3 py-1.5 rounded-full shadow-lg">
                         -{discount}%
                     </span>
                 )}
 
-                {/* Wishlist Button */}
                 <button
                     onClick={handleWishlistClick}
                     disabled={isLoading}
@@ -186,7 +180,6 @@ const ProductCards = ({ product, viewMode = "grid" }) => {
                     )}
                 </button>
 
-                {/* Quick Actions */}
                 <div className={`absolute bottom-4 left-4 right-4 flex gap-2 transition-all duration-300 ${
                     isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}>
@@ -200,14 +193,12 @@ const ProductCards = ({ product, viewMode = "grid" }) => {
                 </div>
             </div>
 
-            {/* Product Details */}
             <div className="p-5">
                 <p className="text-[#1B9C85] text-xs font-semibold mb-2 tracking-wider">#{product.productID}</p>
                 <h3 className="text-lg font-bold text-gray-800 mb-2 truncate group-hover:text-[#1B9C85] transition-colors">
                     {product.name}
                 </h3>
 
-                {/* Rating */}
                 <div className="flex items-center gap-2 mb-3">
                     <div className="flex items-center gap-0.5">
                         {renderStars(product.rating || 4.2)}
@@ -215,7 +206,6 @@ const ProductCards = ({ product, viewMode = "grid" }) => {
                     <span className="text-sm text-gray-400">({product.reviews || 120})</span>
                 </div>
 
-                {/* Price */}
                 <div className="flex items-center justify-between">
                     <div>
                         <p className="text-xl font-bold text-[#1B9C85]">LKR {product.price.toFixed(2)}</p>

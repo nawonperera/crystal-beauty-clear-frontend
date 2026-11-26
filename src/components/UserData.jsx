@@ -61,14 +61,12 @@ const UserData = () => {
         }
     }, [fetchWishlistProducts]);
 
-    // Fetch wishlist when user is logged in
     useEffect(() => {
         if (user) {
             fetchWishlist();
         }
     }, [user, fetchWishlist]);
 
-    // Listen for wishlist updates from other components
     useEffect(() => {
         const handleWishlistUpdate = (event) => {
             const updatedWishlist = event.detail;
@@ -88,7 +86,6 @@ const UserData = () => {
             await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/user/wishlist/${productId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-            // Update local state
             const newWishlist = wishlist.filter(id => id !== productId);
             setWishlist(newWishlist);
             setWishlistProducts(prev => prev.filter(p => p.productID !== productId));
@@ -110,7 +107,6 @@ const UserData = () => {
                 </div>
             ) : (
                 <div className="h-full flex justify-center items-center flex-row gap-4">
-                    {/* Wishlist Button */}
                     <div className="relative">
                         <button
                             onClick={() => setShowWishlist(!showWishlist)}
@@ -124,7 +120,6 @@ const UserData = () => {
                             )}
                         </button>
 
-                        {/* Wishlist Dropdown */}
                         {showWishlist && (
                             <div className="absolute right-0 top-full mt-2 w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden">
                                 <div className="p-4 border-b border-gray-100 flex items-center justify-between">
@@ -198,7 +193,6 @@ const UserData = () => {
                         )}
                     </div>
 
-                    {/* Logout Button */}
                     <button
                         className="px-5 py-2.5 bg-white text-[#1B9C85] text-sm font-semibold rounded-full hover:bg-gray-100 transition-all shadow-md"
                         onClick={() => {

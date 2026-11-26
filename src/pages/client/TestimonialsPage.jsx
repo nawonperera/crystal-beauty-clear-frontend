@@ -103,9 +103,7 @@ const TestimonialsPage = () => {
 
     return (
         <div className="min-h-screen w-full bg-[#EDF6EE] overflow-x-hidden">
-            {/* Hero Banner Section */}
             <div className="relative h-[60vh] w-full bg-gradient-to-br from-[#0d5c4f] via-[#1B9C85] to-[#2dd4bf] flex flex-col">
-                {/* Animated Background Elements */}
                 <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
                     <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-300/10 rounded-full blur-3xl animate-pulse"></div>
@@ -115,9 +113,8 @@ const TestimonialsPage = () => {
                     <div className="absolute bottom-32 left-20 w-5 h-5 bg-teal-300 rounded-full opacity-40 animate-bounce"></div>
                 </div>
 
-                <Header headerImage="public\footer-logo.png" navBarColor="text-white" />
+                <Header headerImage="/Footer-logo.png" navBarColor="text-white" />
 
-                {/* Hero Content */}
                 <div className="flex-1 flex items-center justify-center text-center px-4 relative z-10">
                     <div className="max-w-4xl">
                         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
@@ -140,7 +137,6 @@ const TestimonialsPage = () => {
                 </div>
             </div>
 
-            {/* Stats Section */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
                 <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -156,7 +152,6 @@ const TestimonialsPage = () => {
                 </div>
             </div>
 
-            {/* Featured Review */}
             <div className="py-20 lg:py-24">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="relative">
@@ -189,7 +184,6 @@ const TestimonialsPage = () => {
                 </div>
             </div>
 
-            {/* Filter Tabs */}
             <div className="bg-white py-8 sticky top-0 z-30 shadow-sm">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-wrap justify-center gap-3">
@@ -197,11 +191,10 @@ const TestimonialsPage = () => {
                             <button
                                 key={filter.id}
                                 onClick={() => setActiveFilter(filter.id)}
-                                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                                    activeFilter === filter.id
+                                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${activeFilter === filter.id
                                         ? "bg-gradient-to-r from-[#1B9C85] to-emerald-500 text-white shadow-lg shadow-[#1B9C85]/30"
                                         : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                                }`}
+                                    }`}
                             >
                                 {filter.label}
                             </button>
@@ -210,7 +203,6 @@ const TestimonialsPage = () => {
                 </div>
             </div>
 
-            {/* Testimonials Grid */}
             <div className="py-16 bg-[#EDF6EE]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
@@ -267,7 +259,6 @@ const TestimonialsPage = () => {
                 </div>
             </div>
 
-            {/* Write a Review CTA */}
             <div className="py-20 bg-white">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="relative">
@@ -297,7 +288,6 @@ const TestimonialsPage = () => {
                 </div>
             </div>
 
-            {/* Trust Badges */}
             <div className="py-16 bg-[#EDF6EE]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
@@ -387,7 +377,6 @@ const TestimonialsPage = () => {
                 </div>
             </div>
 
-            {/* CTA Section */}
             <div className="py-20 bg-gradient-to-br from-[#0d5c4f] via-[#1B9C85] to-emerald-600 relative overflow-hidden">
                 <div className="absolute inset-0">
                     <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>

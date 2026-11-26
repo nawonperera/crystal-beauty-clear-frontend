@@ -22,7 +22,6 @@ const RegisterPage = () => {
     const registerFormRef = useRef(null);
     const firstNameInputRef = useRef(null);
 
-    // Google Login
     const registerWithGoogle = useGoogleLogin({
         onSuccess: (res) => {
             setLoading(true);
@@ -43,7 +42,6 @@ const RegisterPage = () => {
         },
     });
 
-    // Scroll to register form on mount
     useEffect(() => {
         if (registerFormRef.current) {
             registerFormRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -97,14 +95,11 @@ const RegisterPage = () => {
 
     return (
         <div className="min-h-screen bg-[#EDF6EE]">
-            {/* Header */}
             <div className="fixed top-0 left-0 right-0 z-50">
                 <Header navBarColor="text-gray-800" headerImage="/Logo.png" />
             </div>
 
-            {/* Main Content */}
             <div className="min-h-screen flex pt-[20vh]">
-                {/* Left Side - Image */}
                 <div className="hidden lg:flex lg:w-1/2 relative">
                     <div 
                         className="fixed top-0 left-0 w-1/2 h-full bg-cover bg-center"
@@ -113,7 +108,6 @@ const RegisterPage = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-[#1B9C85]/80 to-transparent"></div>
                     </div>
                     
-                    {/* Welcome Text */}
                     <div className="fixed top-0 left-0 w-1/2 h-full z-10 flex flex-col justify-center px-16 text-white">
                         <h1 className="text-5xl font-bold mb-6 leading-tight">
                             Join the<br />
@@ -129,18 +123,15 @@ const RegisterPage = () => {
                     </div>
                 </div>
 
-                {/* Right Side - Register Form */}
                 <div className="w-full lg:w-1/2 lg:ml-auto flex items-start justify-center px-6 py-12">
                     <div 
                         ref={registerFormRef}
                         className="w-full max-w-xl"
                     >
-                        {/* Mobile Logo */}
                         <div className="lg:hidden text-center mb-8">
                             <img src="/Logo.png" alt="Cristal" className="h-16 mx-auto mb-4" />
                         </div>
 
-                        {/* Form Card */}
                         <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-10">
                             <div className="text-center mb-8">
                                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h2>
@@ -148,7 +139,6 @@ const RegisterPage = () => {
                             </div>
 
                             <form onSubmit={handleRegister} className="space-y-5">
-                                {/* Row 1: First Name & Last Name */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
                                         <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -185,7 +175,6 @@ const RegisterPage = () => {
                                     </div>
                                 </div>
 
-                                {/* Row 2: Email & Phone */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
                                         <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -221,7 +210,6 @@ const RegisterPage = () => {
                                     </div>
                                 </div>
 
-                                {/* Row 3: Password & Confirm Password */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
                                         <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -271,7 +259,6 @@ const RegisterPage = () => {
                                     </div>
                                 </div>
 
-                                {/* Register Button */}
                                 <button
                                     type="submit"
                                     disabled={loading}
@@ -290,7 +277,6 @@ const RegisterPage = () => {
                                     )}
                                 </button>
 
-                                {/* Divider */}
                                 <div className="relative my-6">
                                     <div className="absolute inset-0 flex items-center">
                                         <div className="w-full border-t border-gray-200"></div>
@@ -300,7 +286,6 @@ const RegisterPage = () => {
                                     </div>
                                 </div>
 
-                                {/* Google Register */}
                                 <button
                                     type="button"
                                     onClick={registerWithGoogle}
@@ -312,7 +297,6 @@ const RegisterPage = () => {
                                 </button>
                             </form>
 
-                            {/* Login Link */}
                             <p className="text-center mt-8 text-gray-600">
                                 Already have an account?{" "}
                                 <Link 
@@ -324,7 +308,6 @@ const RegisterPage = () => {
                             </p>
                         </div>
 
-                        {/* Footer Text */}
                         <p className="text-center mt-6 text-sm text-gray-500">
                             By creating an account, you agree to our{" "}
                             <a href="#" className="text-[#1B9C85] hover:underline">Terms</a>

@@ -67,7 +67,6 @@ const WishlistPage = () => {
             <Header navBarColor="text-black" headerImage="/Logo.png" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                {/* Back Button */}
                 <Link
                     to="/products"
                     className="inline-flex items-center gap-2 text-[#1B9C85] hover:text-[#158a74] mb-6 transition-colors font-medium"
@@ -76,7 +75,6 @@ const WishlistPage = () => {
                     <span>Continue Shopping</span>
                 </Link>
 
-                {/* Page Header */}
                 <div className="flex items-center gap-3 mb-8">
                     <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
                         <FiHeart className="w-6 h-6 text-red-500" />
@@ -114,7 +112,6 @@ const WishlistPage = () => {
                                 key={product.productID}
                                 className="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300"
                             >
-                                {/* Image */}
                                 <div className="relative h-56 overflow-hidden">
                                     <Link to={`/overview/${product.productID}`}>
                                         <img
@@ -136,7 +133,6 @@ const WishlistPage = () => {
                                     )}
                                 </div>
 
-                                {/* Content */}
                                 <div className="p-5">
                                     <Link to={`/overview/${product.productID}`}>
                                         <h3 className="font-bold text-gray-900 mb-2 truncate hover:text-[#1B9C85] transition-colors">

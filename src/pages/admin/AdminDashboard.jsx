@@ -85,13 +85,11 @@ const AdminDashboard = () => {
 
     return (
         <div className="w-full h-full p-6 bg-gray-50 overflow-auto">
-            {/* Header */}
             <div className="mb-8">
                 <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
                 <p className="text-gray-500">Welcome back! Here's what's happening with your store.</p>
             </div>
 
-            {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 {statCards.map((stat, index) => {
                     const Icon = stat.icon;
@@ -118,7 +116,6 @@ const AdminDashboard = () => {
                 })}
             </div>
 
-            {/* Revenue & Orders Stats */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
                 <div className="bg-gradient-to-br from-[#1B9C85] to-emerald-500 rounded-2xl p-6 text-white shadow-lg">
                     <div className="flex items-center justify-between mb-4">
@@ -155,7 +152,6 @@ const AdminDashboard = () => {
                 </div>
             </div>
 
-            {/* Recent Orders */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <div className="p-6 border-b border-gray-100 flex items-center justify-between">
                     <div>

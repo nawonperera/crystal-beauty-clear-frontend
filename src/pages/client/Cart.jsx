@@ -28,7 +28,6 @@ const Cart = () => {
             
             <div className="w-full py-12 px-4">
                 <div className="max-w-6xl mx-auto">
-                    {/* Page Header */}
                     <div className="mb-8">
                         <Link to="/products" className="inline-flex items-center gap-2 text-[#1B9C85] hover:text-[#158a74] transition-colors mb-4">
                             <FiArrowLeft className="w-5 h-5" />
@@ -39,7 +38,6 @@ const Cart = () => {
                     </div>
 
                     {cart.length === 0 ? (
-                        /* Empty Cart State */
                         <div className="bg-white rounded-3xl shadow-lg p-12 text-center">
                             <div className="w-24 h-24 mx-auto mb-6 bg-[#1B9C85]/10 rounded-full flex items-center justify-center">
                                 <FiShoppingBag className="w-12 h-12 text-[#1B9C85]" />
@@ -58,10 +56,8 @@ const Cart = () => {
                         </div>
                     ) : (
                         <div className="flex flex-col lg:flex-row gap-8">
-                            {/* Cart Items */}
                             <div className="flex-1">
                                 <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
-                                    {/* Table Header - Desktop */}
                                     <div className="hidden md:grid grid-cols-12 gap-4 px-6 py-4 bg-gray-50 border-b border-gray-100 text-sm font-semibold text-gray-500 uppercase tracking-wider">
                                         <div className="col-span-6">Product</div>
                                         <div className="col-span-2 text-center">Price</div>
@@ -69,7 +65,6 @@ const Cart = () => {
                                         <div className="col-span-2 text-right">Total</div>
                                     </div>
 
-                                    {/* Cart Items */}
                                     <div className="divide-y divide-gray-100">
                                         {cart.map((item, index) => (
                                             <div
@@ -77,7 +72,6 @@ const Cart = () => {
                                                 className="group p-6 hover:bg-gray-50/50 transition-colors"
                                             >
                                                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-                                                    {/* Product Info */}
                                                     <div className="md:col-span-6 flex items-center gap-4">
                                                         <div className="relative">
                                                             <img
@@ -97,18 +91,15 @@ const Cart = () => {
                                                         </div>
                                                         <div className="flex-1 min-w-0">
                                                             <h3 className="text-lg font-semibold text-gray-900 truncate">{item.name}</h3>
-                                                            <p className="text-sm text-gray-500 truncate">{item.altNames.join(" | ")}</p>
-                                                            {/* Mobile Price */}
+                                                            <p className="text-sm text-gray-500 truncate">{item.altNames?.join(" | ")}</p>
                                                             <p className="md:hidden text-[#1B9C85] font-semibold mt-1">LKR {item.price.toFixed(2)}</p>
                                                         </div>
                                                     </div>
 
-                                                    {/* Price - Desktop */}
                                                     <div className="hidden md:flex md:col-span-2 justify-center">
                                                         <span className="text-gray-700 font-medium">LKR {item.price.toFixed(2)}</span>
                                                     </div>
 
-                                                    {/* Quantity Controls */}
                                                     <div className="md:col-span-2 flex items-center justify-center">
                                                         <div className="flex items-center gap-3 bg-gray-100 rounded-full p-1">
                                                             <button
@@ -133,7 +124,6 @@ const Cart = () => {
                                                         </div>
                                                     </div>
 
-                                                    {/* Item Total */}
                                                     <div className="md:col-span-2 flex items-center justify-between md:justify-end">
                                                         <span className="md:hidden text-gray-500">Subtotal:</span>
                                                         <span className="text-lg font-bold text-gray-900">
@@ -142,7 +132,6 @@ const Cart = () => {
                                                     </div>
                                                 </div>
 
-                                                {/* Mobile Delete Button */}
                                                 <button
                                                     className="md:hidden mt-4 w-full py-2 text-red-500 text-sm font-medium flex items-center justify-center gap-2 border border-red-200 rounded-xl hover:bg-red-50 transition-colors"
                                                     onClick={() => {
@@ -159,7 +148,6 @@ const Cart = () => {
                                 </div>
                             </div>
 
-                            {/* Order Summary */}
                             <div className="lg:w-96">
                                 <div className="bg-white rounded-3xl shadow-lg p-6 sticky top-6">
                                     <h2 className="text-xl font-bold text-gray-900 mb-6">Order Summary</h2>
