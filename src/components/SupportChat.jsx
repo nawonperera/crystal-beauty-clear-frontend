@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useEffect, useRef, useState } from "react"
 import { FiMessageCircle, FiSend, FiX } from "react-icons/fi"
 
@@ -31,7 +32,8 @@ const SupportChat = () => {
             params.append("query", trimmed)
 
             const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/product/support?${params.toString()}`)
-            setMessages((prev) => [...prev, { sender: "bot", text: response.data.answer || "Sorry, I couldn't find an answer to that question." },])
+            console.log("Support chat response:", response.data)
+            setMessages((prev) => [...prev, { sender: "bot", text: response.data || "Sorry, I couldn't find an answer to that question." },])
 
         } catch (error) {
             console.error("Support chat error:", error)

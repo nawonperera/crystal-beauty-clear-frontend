@@ -32,12 +32,12 @@ const ProductsPage = () => {
         { id: "fragrance", label: "Fragrance" }
     ];
 
-    const fetchProducts = useCallback(async (page = 1) => {
+    const fetchProducts = useCallback(async (page = 1, searchOverride = search) => {
         setLoading(true);
         try {
             const params = new URLSearchParams();
 
-            if (search.trim()) params.append("search", search.trim());
+            if (searchOverride.trim()) params.append("search", searchOverride.trim());
             if (activeCategory !== "all") params.append("category", activeCategory);
             if (priceRange.min) params.append("minPrice", priceRange.min);
             if (priceRange.max) params.append("maxPrice", priceRange.max);
@@ -171,7 +171,7 @@ const ProductsPage = () => {
                                 <button
                                     onClick={() => {
                                         setSearch("");
-                                        fetchProducts(1);
+                                        fetchProducts(1, "");
                                     }}
                                     className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                                 >
