@@ -8,11 +8,13 @@ import RegisterPage from "./pages/client/Register";
 import HomePage from "./pages/HomePage";
 import Test from "./pages/test";
 import ForgetPassword from "./pages/client/ForgetPassword";
+import SupportChat from "./components/SupportChat";
 
 function App() {
     return (
         <BrowserRouter>
             <Toaster position="top-right" />
+            <SupportChat />
             <Routes path="/*">
                 <Route path="/admin/*" element={<AdminPage />} />
                 <Route path="/login" element={<LoginPage />} />
