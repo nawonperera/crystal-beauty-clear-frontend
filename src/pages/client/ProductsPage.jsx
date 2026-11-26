@@ -128,7 +128,7 @@ const ProductsPage = () => {
 
     return (
         <div className="min-h-screen w-full bg-[#EDF6EE] overflow-x-hidden">
-            <div className="relative h-[45vh] w-full bg-gradient-to-br from-[#0d5c4f] via-[#1B9C85] to-[#2dd4bf] flex flex-col">
+            <div className="relative min-h-[60vh] w-full bg-gradient-to-br from-[#0d5c4f] via-[#1B9C85] to-[#2dd4bf] flex flex-col">
                 <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
                     <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-300/10 rounded-full blur-3xl animate-pulse"></div>
@@ -138,16 +138,16 @@ const ProductsPage = () => {
                     <Header navBarColor="text-white" headerImage="/Footer-logo.png" />
                 </div>
 
-                <div className="flex-1 flex items-center justify-center text-center px-4 relative z-10">
+                <div className="flex-1 flex items-start justify-center text-center px-4 pt-4 pb-24 relative z-10">
                     <div className="max-w-4xl">
                         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
                             <HiSparkles className="w-4 h-4 text-green-300" />
                             <span className="text-white/90 text-sm font-medium">Premium Beauty Collection</span>
                         </div>
-                        <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
                             Our <span className="bg-gradient-to-r from-green-300 via-emerald-200 to-teal-300 bg-clip-text text-transparent">Products</span>
                         </h1>
-                        <p className="text-lg text-white/80 max-w-2xl mx-auto">
+                        <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
                             Discover our curated collection of premium beauty essentials
                         </p>
                     </div>

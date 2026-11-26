@@ -7,7 +7,7 @@ import { BiLeaf } from "react-icons/bi";
 const AboutPage = () => {
     return (
         <div className="min-h-screen w-full bg-[#EDF6EE] overflow-x-hidden">
-            <div className="relative h-[70vh] w-full bg-gradient-to-br from-[#0d5c4f] via-[#1B9C85] to-[#2dd4bf] flex flex-col">
+            <div className="relative min-h-[60vh] w-full bg-gradient-to-br from-[#0d5c4f] via-[#1B9C85] to-[#2dd4bf] flex flex-col">
                 <div className="absolute inset-0 overflow-hidden">
                     <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
                     <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-300/10 rounded-full blur-3xl animate-pulse"></div>
@@ -19,7 +19,7 @@ const AboutPage = () => {
 
                 <Header headerImage="/Footer-logo.png" navBarColor="text-white" />
 
-                <div className="flex-1 flex items-center justify-center text-center px-4 relative z-10">
+                <div className="flex-1 flex items-start justify-center text-center px-4 pt-4 pb-24 relative z-10">
                     <div className="max-w-4xl">
                         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
                             <HiSparkles className="w-4 h-4 text-green-300" />
